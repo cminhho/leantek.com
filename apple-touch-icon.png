@@ -1,0 +1,14 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="90" cy="90" r="90" fill="#1a1a1a"/>
+  
+  <!-- Letter L -->
+  <path d="M45 35 L45 135 L125 135 L125 115 L70 115 L70 35 Z" fill="#ef4444" stroke="#ef4444" stroke-width="2"/>
+  
+  <!-- Accent dot -->
+  <circle cx="140" cy="50" r="12" fill="#ef4444"/>
+  
+  <!-- Subtle tech accent -->
+  <rect x="130" y="120" width="30" height="4" fill="#ef4444" rx="2"/>
+  <rect x="130" y="130" width="20" fill="#ef4444" rx="2"/>
+</svg> 

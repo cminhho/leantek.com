@@ -1,0 +1,23 @@
+{
+  "name": "LeanTek - Software Development & IT Consulting",
+  "short_name": "LeanTek",
+  "description": "Custom software development, IT consulting and digital transformation services",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ef4444",
+  "background_color": "#1a1a1a",
+  "display": "standalone",
+  "start_url": "/leantek.com/",
+  "scope": "/leantek.com/"
+} 
