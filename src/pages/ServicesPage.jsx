@@ -233,6 +233,26 @@ const ServicesPage = () => {
           ]
         },
         {
+          title: "Human Resource Management (HRM)",
+          description: "HRM software solutions to streamline your HR processes and improve employee management.",
+          color: "from-gray-600 to-gray-700",
+          icon: (
+            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          ),
+          subServices: [
+            "HRM system implementation",
+            "Employee management",
+            "Performance tracking",
+            "Leave and attendance management",
+            "Recruitment and onboarding",
+            "Employee benefits and compensation",
+            "Performance management",
+            "Employee self-service"
+          ]
+        },
+        {
           title: "Content & Document Management",
           description: "Comprehensive content and document management systems to organize, store, and retrieve your digital assets efficiently.",
           color: "from-slate-700 to-slate-800",
@@ -267,23 +287,6 @@ const ServicesPage = () => {
           ]
         },
         {
-          title: "Business Process Management",
-          description: "Optimize and manage your business processes to improve efficiency, reduce costs, and enhance customer satisfaction.",
-          color: "from-slate-600 to-slate-700",
-          icon: (
-            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-            </svg>
-          ),
-          subServices: [
-            "Process modeling and design",
-            "Workflow optimization",
-            "Performance monitoring",
-            "Process automation",
-            "Compliance management"
-          ]
-        },
-        {
           title: "Data Management",
           description: "Comprehensive data management solutions to ensure data quality, accessibility, and security across your organization.",
           color: "from-gray-600 to-gray-700",
@@ -298,6 +301,44 @@ const ServicesPage = () => {
             "Data integration",
             "Master data management",
             "Data governance"
+          ]
+        },
+        {
+          title: "Task Management",
+          description: "Efficient task management solutions to streamline your workflow and improve productivity.",
+          color: "from-gray-600 to-gray-700",
+          icon: (
+            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          ),
+          subServices: [
+            "Task management system",
+            "Project management",
+            "Task scheduling",
+            "Task tracking",
+            "Task prioritization",
+            "Task delegation",
+            "Task completion tracking",
+            "Task reporting",
+            "Task collaboration",
+            "Task notifications"
+          ]
+        },
+        {
+          title: "Internal Google Search & AI",
+          description: "Internal Google Search & AI to help you find information quickly and efficiently.",
+          color: "from-gray-600 to-gray-700",
+          icon: (
+            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          ),
+          subServices: [
+            "Internal Google Search",
+            "Internal AI",
+            "Internal Search",
+            "Internal AI",
           ]
         }
       ]

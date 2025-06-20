@@ -120,7 +120,7 @@ const Industries = () => {
                 key={industry.id}
                 className={`py-4 px-1 relative font-medium text-base transition-colors ${
                   activeIndustry === industry.id
-                    ? 'text-primary border-b-2 border-primary -mb-px'
+                    ? 'border-b-4 border-red-600 -mb-px'
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
                 onClick={() => setActiveIndustry(industry.id)}

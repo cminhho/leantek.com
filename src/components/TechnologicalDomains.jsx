@@ -11,50 +11,50 @@ const TechnologicalDomains = () => {
       items: [
         {
           title: 'Machine learning',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a4 4 0 0 1 4 4M4.93 4.93a8 8 0 0 1 11.32 11.32M19.07 19.07A8 8 0 0 1 7.75 7.75" /><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12" /></svg>
+          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a4 4 0 0 1 4 4M4.93 4.93a8 8 0 0 1 11.32 11.32M19.07 19.07A8 8 0 0 1 7.75 7.75" /><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12" /></svg>
         },
         {
           title: 'Deep learning',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M10 6.5h4m-4 11h4m-7-4v-4m11 4v-4"/></svg>
+          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M10 6.5h4m-4 11h4m-7-4v-4m11 4v-4"/></svg>
         },
         {
           title: 'Computer vision',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
         },
         {
           title: 'Natural language processing',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         },
         {
           title: 'Natural language understanding',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
         },
         {
           title: 'Generative AI',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 5 4 4"/><path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="m15 5 4 4"/><path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
         }
       ]
     },
     'Process automation': {
       title: 'Process Automation',
       items: [
-        { title: 'Robotic process automation', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M8 12v4"/><path d="M16 12v4"/></svg> },
-        { title: 'Intelligent automation', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.5a5.5 5.5 0 0 0-5.12 3.04A6 6 0 0 0 6 15.5c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-.88-3.46A5.5 5.5 0 0 0 12 2.5Z"/><path d="M8 14h8"/><path d="m10 17 2-4 2 4"/><path d="m8 11 2-2 2 2"/><path d="m14 11 2-2 2 2"/></svg> },
-        { title: 'Business process automation', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg> },
-        { title: 'Document data extraction & processing', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg> },
-        { title: 'Workflow orchestration', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="3"></circle><circle cx="19" cy="12" r="3"></circle><circle cx="5" cy="12" r="3"></circle><circle cx="12" cy="19" r="3"></circle><path d="M12 8v8m4.5-4.5h-9"/></svg> },
-        { title: 'Virtual assistance & support', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" y1="2" x2="8" y2="4"/><line x1="16" y1="2" x2="16" y2="4"/></svg> },
+        { title: 'Robotic process automation', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M8 12v4"/><path d="M16 12v4"/></svg> },
+        { title: 'Intelligent automation', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.5a5.5 5.5 0 0 0-5.12 3.04A6 6 0 0 0 6 15.5c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-.88-3.46A5.5 5.5 0 0 0 12 2.5Z"/><path d="M8 14h8"/><path d="m10 17 2-4 2 4"/><path d="m8 11 2-2 2 2"/><path d="m14 11 2-2 2 2"/></svg> },
+        { title: 'Business process automation', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg> },
+        { title: 'Document data extraction & processing', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg> },
+        { title: 'Workflow orchestration', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="3"></circle><circle cx="19" cy="12" r="3"></circle><circle cx="5" cy="12" r="3"></circle><circle cx="12" cy="19" r="3"></circle><path d="M12 8v8m4.5-4.5h-9"/></svg> },
+        { title: 'Virtual assistance & support', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" y1="2" x2="8" y2="4"/><line x1="16" y1="2" x2="16" y2="4"/></svg> },
       ]
     },
     'Big data': {
       title: 'Big Data',
       items: [
-        { title: 'Data engineering', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg> },
-        { title: 'Data lakes and data warehouses', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 13.1a5 5 0 0 0 7.8 4.4 5 5 0 0 0 7.8-4.4c-1.3-3.4-6.3-4.4-6.3-4.4s-5 1-6.3 4.4Z"/><path d="M2 13.1C2 13.1 3 18 12 18s10-4.9 10-4.9"/><path d="M12 18v4"/></svg> },
-        { title: 'Distributed data processing', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-2.1 0-3.8-1.7-3.8-3.8s1.7-3.8 3.8-3.8h15c2.1 0 3.8 1.7 3.8 3.8s-1.7 3.8-3.8 3.8h-15Z"/><path d="M4.5 9.5c-2.1 0-3.8-1.7-3.8-3.8S2.4 2 4.5 2h15c2.1 0 3.8 1.7 3.8 3.8s-1.7 3.8-3.8 3.8h-15Z"/><path d="M7 16.5v3c0 .6.4 1 1 1h8c.6 0 1-.4 1-1v-3"/></svg> },
-        { title: 'Cloud data solutions', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="M12 12v9"/></svg> },
-        { title: 'Real-time streaming analytics', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> },
-        { title: 'Data security and compliance', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> },
+        { title: 'Data engineering', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg> },
+        { title: 'Data lakes and data warehouses', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M2 13.1a5 5 0 0 0 7.8 4.4 5 5 0 0 0 7.8-4.4c-1.3-3.4-6.3-4.4-6.3-4.4s-5 1-6.3 4.4Z"/><path d="M2 13.1C2 13.1 3 18 12 18s10-4.9 10-4.9"/><path d="M12 18v4"/></svg> },
+        { title: 'Distributed data processing', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-2.1 0-3.8-1.7-3.8-3.8s1.7-3.8 3.8-3.8h15c2.1 0 3.8 1.7 3.8 3.8s-1.7 3.8-3.8 3.8h-15Z"/><path d="M4.5 9.5c-2.1 0-3.8-1.7-3.8-3.8S2.4 2 4.5 2h15c2.1 0 3.8 1.7 3.8 3.8s-1.7 3.8-3.8 3.8h-15Z"/><path d="M7 16.5v3c0 .6.4 1 1 1h8c.6 0 1-.4 1-1v-3"/></svg> },
+        { title: 'Cloud data solutions', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="M12 12v9"/></svg> },
+        { title: 'Real-time streaming analytics', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> },
+        { title: 'Data security and compliance', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> },
       ]
     },
     'Embedded': {
@@ -151,7 +151,7 @@ const TechnologicalDomains = () => {
                 key={domain}
                 className={`py-4 px-6 relative font-medium text-base transition-colors ${
                   activeTab === domain
-                    ? 'text-primary border-b-2 border-primary -mb-px'
+                    ? 'border-b-4 border-red-600 -mb-px'
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
                 onClick={() => setActiveTab(domain)}

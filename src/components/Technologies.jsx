@@ -223,9 +223,9 @@ const Technologies = () => {
             {Object.keys(technologies).map((tab) => (
               <button
                 key={tab}
-                className={`py-4 px-1 relative font-medium text-base transition-colors ${
+                className={`py-4 px-6 relative font-medium text-base transition-colors ${
                   activeTab === tab
-                    ? 'text-primary border-b-2 border-primary -mb-px'
+                    ? 'border-b-4 border-red-600 -mb-px'
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
                 onClick={() => setActiveTab(tab)}
