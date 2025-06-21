@@ -8,7 +8,7 @@ const Stats = () => {
     },
     {
       value: '200+',
-      description: 'IT professionals on board'
+      description: 'IT professionals'
     },
     {
       value: '93%',
@@ -25,8 +25,8 @@ const Stats = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
           {stats.slice(0, 4).map((stat, index) => (
-            <div key={index} className="bg-[#2A2A2A] p-6 sm:p-8 lg:p-12 xl:p-14 rounded-lg">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">{stat.value}</h3>
+            <div key={index} className="bg-[#2A2A2A] p-6 sm:p-8 lg:p-12 xl:p-16 rounded-lg">
+              <h3 className="text-2xl sm:text-3xl lg:text-6xl font-bold text-white mb-2">{stat.value}</h3>
               <p className="text-sm sm:text-base text-gray-400">{stat.description}</p>
             </div>
           ))}
@@ -43,7 +43,7 @@ const Stats = () => {
 
         <div className="text-gray-400 space-y-4 sm:space-y-6 max-w-4xl font-light text-sm sm:text-base">
           <p>
-            As a leading software development company, we've spent over a decade helping businesses around the 
+            As a global software development company, we've spent over a decade helping businesses around the 
             globe tackle real challenges with smart, effective software solutions. From North America to Europe, Asia 
             and Australia, our clients trust us to make their ideas a reality – whether they're startups breaking new 
             ground or global enterprises streamlining operations and scaling confidently.

@@ -4,40 +4,40 @@ import { motion } from 'framer-motion'
 const CaseStudies = () => {
   const cases = [
     {
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80",
-      title: "CTIVN ERP: 16% Boost in Digital Sales",
+      image: "https://images.ctfassets.net/lzny33ho1g45/4vXtHsD8OwspfhedAGOG6k/efb7a2b28a29f5f4023829a56ab04071/best-erp-software-03-sap.webp?w=1400&fm=avif",
+      title: "CTIVN ERP Implementation: 60% Efficiency Improvement",
       link: "/cases/ctivn-erp-implementation-services",
-      tags: ["ERP", "CRM", "AI", "Digital Transformation"]
+      tags: ["ERP", "Digital Transformation", "Process Optimization", "Integration"]
     },
     {
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
-      title: "CICC HR Management System",
-      link: "/cases/hrm-system",
-      tags: ["HRM", "SaaS", "Employee Experience"]
+      image: "https://peoplemanagingpeople.com/wp-content/cache/peoplemanagingpeople.com/static/static.crozdesk.com/web-app-library-categories-providers-screenshots-000-068-083-pub-bamboohr-screenshot-1712252279.png",
+      title: "Enterprise HR Management System",
+      link: "/cases/hrm-system", 
+      tags: ["HRM", "Employee Management", "Automation", "Analytics"]
     },
     {
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80",
-      title: "CICC Project Management System",
-      link: "/cases/merchant-cash-advance",
-      tags: ["Fintech", "Lending", "Risk Analysis"]
+      image: "https://toggl.com/blog/wp-content/uploads/2022/11/gantt-pro-timeline.png",
+      title: "Agile Project Management Platform",
+      link: "/cases/project-management-platform",
+      tags: ["Project Management", "Agile", "Collaboration", "Productivity"]
     },
     {
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&q=80",
-      title: "Merchant Lending",
-      link: "/cases/business-lending",
-      tags: ["Fintech", "B2B", "Automation"]
+      image: "https://hesfintech.com/wp-content/uploads/2024/04/merchant-banner-scaled.webp",
+      title: "Merchant Lending Platform",
+      link: "/cases/buy-now-pay-later",
+      tags: ["Fintech", "BNPL", "Payment Processing", "Risk Management"]
     },
     {
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80",
-      title: "Agile Project Management",
-      link: "/cases/lean-work-management",
-      tags: ["Productivity", "Collaboration", "Agile"]
+      image: "https://images.ctfassets.net/lzny33ho1g45/1IVKp4IwKN2ytf80w8hWWD/e6958b74255768657722568c0c1c2c4f/Asana.png?w=1400&fm=avif",
+      title: "Enterprise Work Management Suite",
+      link: "/cases/enterprise-work-management",
+      tags: ["Workflow Management", "Team Collaboration", "Automation", "Analytics"]
     },
     {
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80",
-      title: "AI-Powered Enterprise Search",
-      link: "/cases/lean-search-ai",
-      tags: ["AI", "Enterprise Search", "NLP"]
+      image: "https://unable-actionable-car.media.strapiapp.com/image9_7d2f10edbc.png",
+      title: "AI-Powered Enterprise Search Engine",
+      link: "/cases/ai-enterprise-search",
+      tags: ["AI", "Machine Learning", "Enterprise Search", "Data Analytics"]
     }
   ]
 
@@ -71,15 +71,17 @@ const CaseStudies = () => {
                     alt={caseItem.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 group-hover:via-black/40 transition-all duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-normal leading-tight">{caseItem.title}</h3>
-                    <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {caseItem.tags.map((tag) => (
-                        <span key={tag} className="text-xs bg-white/25 px-2 py-1 rounded-full backdrop-blur-sm">
-                          {tag}
-                        </span>
-                      ))}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/95 group-hover:via-black/60 transition-all duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white flex flex-col justify-end h-full">
+                    <div>
+                      <div className="flex flex-wrap gap-1 sm:gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {caseItem.tags.map((tag) => (
+                          <span key={tag} className="text-xs bg-white/25 px-2 py-1 rounded-full backdrop-blur-sm">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-normal leading-tight text-shadow-lg mb-2">{caseItem.title}</h3>
                     </div>
                   </div>
                 </div>
