@@ -14,6 +14,7 @@ import EnterprisePage from './pages/industries/EnterprisePage'
 import ERPPage from './pages/services/ERPPage'
 import BuyNowPayLaterPage from './pages/industries/finance/BuyNowPayLaterPage'
 import BankingPage from './pages/industries/BankingPage'
+import CTIVNERPImplementationPage from './pages/cases/CTIVNERPImplementationPage'
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -41,6 +42,7 @@ function App() {
           <Route path="/services/erp" element={<ERPPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/cases" element={<CasesPage />} />
+          <Route path="/cases/ctivn-erp-implementation-services" element={<CTIVNERPImplementationPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/technologies" element={<TechnologiesPage />} />
           <Route path="/industries" element={<IndustriesPage />} />

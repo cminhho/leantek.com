@@ -11,35 +11,35 @@ const TechnologicalDomains = () => {
       items: [
         {
           title: 'Machine learning',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a4 4 0 0 1 4 4M4.93 4.93a8 8 0 0 1 11.32 11.32M19.07 19.07A8 8 0 0 1 7.75 7.75" /><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12" /></svg>
+          icon: <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a4 4 0 0 1 4 4M4.93 4.93a8 8 0 0 1 11.32 11.32M19.07 19.07A8 8 0 0 1 7.75 7.75" /><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12" /></svg>
         },
         {
           title: 'Deep learning',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M10 6.5h4m-4 11h4m-7-4v-4m11 4v-4"/></svg>
+          icon: <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M10 6.5h4m-4 11h4m-7-4v-4m11 4v-4"/></svg>
         },
         {
           title: 'Computer vision',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          icon: <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
         },
         {
           title: 'Natural language processing',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          icon: <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         },
         {
           title: 'Natural language understanding',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          icon: <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
         },
         {
           title: 'Generative AI',
-          icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="m15 5 4 4"/><path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          icon: <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="m15 5 4 4"/><path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
         }
       ]
     },
     'Process automation': {
       title: 'Process Automation',
       items: [
-        { title: 'Robotic process automation', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M8 12v4"/><path d="M16 12v4"/></svg> },
-        { title: 'Intelligent automation', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.5a5.5 5.5 0 0 0-5.12 3.04A6 6 0 0 0 6 15.5c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-.88-3.46A5.5 5.5 0 0 0 12 2.5Z"/><path d="M8 14h8"/><path d="m10 17 2-4 2 4"/><path d="m8 11 2-2 2 2"/><path d="m14 11 2-2 2 2"/></svg> },
+        { title: 'Robotic process automation', icon: <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M8 12v4"/><path d="M16 12v4"/></svg> },
+                  { title: 'Intelligent automation', icon: <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.5a5.5 5.5 0 0 0-5.12 3.04A6 6 0 0 0 6 15.5c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-.88-3.46A5.5 5.5 0 0 0 12 2.5Z"/><path d="M8 14h8"/><path d="m10 17 2-4 2 4"/><path d="m8 11 2-2 2 2"/><path d="m14 11 2-2 2 2"/></svg> },
         { title: 'Business process automation', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg> },
         { title: 'Document data extraction & processing', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg> },
         { title: 'Workflow orchestration', icon: <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="3"></circle><circle cx="19" cy="12" r="3"></circle><circle cx="5" cy="12" r="3"></circle><circle cx="12" cy="19" r="3"></circle><path d="M12 8v8m4.5-4.5h-9"/></svg> },
@@ -130,11 +130,11 @@ const TechnologicalDomains = () => {
   const activeContent = domains[activeTab]
 
   return (
-    <section className="py-20 bg-white" id="domains">
-      <div className="container">
-        <div className="flex justify-between items-center mb-12">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white" id="domains">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center mb-8 sm:mb-10 lg:mb-12">
           <motion.h2
-            className="text-7xl font-light text-gray-900"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-900"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -144,12 +144,12 @@ const TechnologicalDomains = () => {
           </motion.h2>
         </div>
 
-        <div className="border-b border-gray-200 mb-12">
-          <nav className="flex space-x-8">
+        <div className="border-b border-gray-200 mb-8 sm:mb-10 lg:mb-12">
+          <nav className="flex flex-wrap gap-2 sm:gap-4 lg:gap-8">
             {Object.keys(domains).map((domain) => (
               <button
                 key={domain}
-                className={`py-4 px-6 relative font-medium text-base transition-colors ${
+                className={`py-3 sm:py-4 px-2 sm:px-2 relative font-medium text-sm sm:text-base transition-colors ${
                   activeTab === domain
                     ? 'border-b-4 border-red-600 -mb-px'
                     : 'text-gray-500 hover:text-gray-700'
@@ -164,7 +164,7 @@ const TechnologicalDomains = () => {
 
         <motion.div
           key={activeTab}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -172,14 +172,18 @@ const TechnologicalDomains = () => {
           {activeContent.items.map((item, index) => (
             <motion.div
               key={index}
-              className="bg-gray-100 p-8 hover:shadow-md transition-all duration-300 group cursor-pointer"
+              className="bg-gray-100 p-6 sm:p-8 hover:shadow-md transition-all duration-300 group cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="text-gray-700 mb-8">{item.icon}</div>
-              <h3 className="text-lg font-light mb-2">{item.title}</h3>
+              <div className="text-gray-700 mb-6 sm:mb-8">
+                <div className="w-8 h-8 sm:w-10 sm:h-10">
+                  {item.icon}
+                </div>
+              </div>
+              <h3 className="text-base sm:text-lg font-light mb-2">{item.title}</h3>
               {/* <p className="text-gray-600 text-sm">{item.description}</p> */}
             </motion.div>
           ))}

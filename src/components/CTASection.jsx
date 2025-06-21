@@ -14,7 +14,7 @@ const CTASection = () => {
   }, [])
 
   return (
-    <section className="relative bg-gray-900 py-24 overflow-hidden">
+    <section className="relative bg-gray-900 py-16 sm:py-20 lg:py-24 overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -31,10 +31,10 @@ const CTASection = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 to-black/50 opacity-60"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2 
-            className="md:text-4xl text-white font-light mb-8 text-shadow-lg"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-light mb-6 sm:mb-8 text-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -51,7 +51,7 @@ const CTASection = () => {
           >
             <Link
               to="/contact"
-              className="inline-block bg-red-600 hover:bg-red-700 text-white px-20 py-6 transition-colors duration-200"
+              className="inline-block bg-red-600 hover:bg-red-700 text-white px-8 sm:px-12 lg:px-20 py-4 sm:py-5 lg:py-6 transition-colors duration-200 text-base sm:text-lg"
             >
               Talk to us
             </Link>

@@ -200,11 +200,11 @@ const Technologies = () => {
   }
 
   return (
-    <section className="py-20 bg-white" id="technologies">
-      <div className="container">
-        <div className="flex justify-between items-center mb-12">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white" id="technologies">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8 sm:mb-10 lg:mb-12 gap-4">
           <motion.h2
-            className="text-7xl font-light text-gray-900"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-900"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -213,17 +213,17 @@ const Technologies = () => {
             Technologies
           </motion.h2>
           
-          <Link to="/technologies" className="text-gray-700 font-medium hover:text-primary transition-colors underline underline-offset-8">
+          <Link to="/technologies" className="text-gray-700 font-medium hover:text-primary transition-colors underline underline-offset-8 text-sm sm:text-base">
             All technologies
           </Link>
         </div>
 
-        <div className="border-b border-gray-200 mb-12">
-          <nav className="flex space-x-8">
+        <div className="border-b border-gray-200 mb-8 sm:mb-10 lg:mb-12">
+          <nav className="flex flex-wrap gap-2 sm:gap-4 lg:gap-8">
             {Object.keys(technologies).map((tab) => (
               <button
                 key={tab}
-                className={`py-4 px-6 relative font-medium text-base transition-colors ${
+                className={`py-3 sm:py-4 px-3 sm:px-3 relative font-medium text-sm sm:text-base transition-colors ${
                   activeTab === tab
                     ? 'border-b-4 border-red-600 -mb-px'
                     : 'text-gray-500 hover:text-gray-700'
@@ -238,26 +238,26 @@ const Technologies = () => {
 
         <motion.div
           key={activeTab}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           {/* Left Side - Technology Subcategories */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {technologies[activeTab].subcategories.map((subcategory, index) => (
               <motion.div
                 key={index}
-                className="border-b border-gray-100 pb-6 last:border-b-0"
+                className="border-b border-gray-100 pb-4 sm:pb-6 last:border-b-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="flex flex-col space-y-2">
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
                     {subcategory.name}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                     {subcategory.description}
                   </p>
                 </div>
@@ -266,7 +266,7 @@ const Technologies = () => {
           </div>
 
           {/* Right Side - Technology Icons Grid */}
-          <div className="grid grid-cols-6 gap-6">
+          <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4 lg:gap-6">
             {technologies[activeTab].frameworks.map((framework, index) => (
               <motion.div 
                 key={index}
@@ -276,7 +276,7 @@ const Technologies = () => {
                 transition={{ duration: 0.3, delay: index * 0.03 }}
                 whileHover={{ scale: 1.1 }}
               >
-                <div className="w-12 h-12 mb-2 flex items-center justify-center">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mb-2 flex items-center justify-center">
                   <img 
                     src={framework.logo} 
                     alt={framework.name}
@@ -287,7 +287,7 @@ const Technologies = () => {
                     }}
                   />
                   <div 
-                    className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg items-center justify-center text-white font-bold text-sm hidden"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg items-center justify-center text-white font-bold text-xs sm:text-sm hidden"
                   >
                     {framework.name.charAt(0)}
                   </div>

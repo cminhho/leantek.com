@@ -95,11 +95,11 @@ const Industries = () => {
   const activeContent = industries.find(industry => industry.id === activeIndustry)
 
   return (
-    <section className="py-20 bg-white" id="industries">
-      <div className="container">
-        <div className="flex justify-between items-baseline mb-12">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white" id="industries">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-8 sm:mb-12">
           <motion.h2
-            className="text-7xl font-light"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light mb-4 sm:mb-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -108,19 +108,19 @@ const Industries = () => {
             Industries we serve
           </motion.h2>
           
-          <Link to="/industries" className="text-gray-700 font-medium hover:text-primary transition-colors underline underline-offset-8">
+          <Link to="/industries" className="text-gray-700 text-sm sm:text-base font-medium hover:text-red-600 transition-colors underline underline-offset-8">
             All Industries
           </Link>
         </div>
 
-        <div className="border-b border-gray-200 mb-12">
-          <nav className="flex space-x-8">
+        <div className="border-b border-gray-200 mb-8 sm:mb-12">
+          <nav className="flex flex-wrap gap-2 sm:gap-4 lg:gap-8">
             {industries.map((industry) => (
               <button
                 key={industry.id}
-                className={`py-4 px-1 relative font-medium text-base transition-colors ${
+                className={`py-3 px-1 sm:py-4 relative font-medium text-sm sm:text-base transition-colors ${
                   activeIndustry === industry.id
-                    ? 'border-b-4 border-red-600 -mb-px'
+                    ? 'border-b-4 border-red-600 -mb-px text-red-600'
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
                 onClick={() => setActiveIndustry(industry.id)}
@@ -133,29 +133,29 @@ const Industries = () => {
 
         <motion.div
           key={activeIndustry}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div>
-            <h3 className="text-2xl font-bold mb-6">{activeContent.contentTitle}</h3>
-            <p className="text-gray-600 mb-8">{activeContent.description}</p>
+          <div className="order-2 lg:order-1">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{activeContent.contentTitle}</h3>
+            <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed">{activeContent.description}</p>
             
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {activeContent.benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start">
-                  <svg className="w-5 h-5 text-primary mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-5 h-5 text-red-600 mt-0.5 sm:mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-700">{benefit}</span>
+                  <span className="text-sm sm:text-base text-gray-700">{benefit}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="relative">
-            <div className="aspect-w-16 aspect-h-9 -lg overflow-hidden bg-gray-100">
+          <div className="relative order-1 lg:order-2">
+            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-100">
               <img
                 src={activeContent.image}
                 alt={`${activeContent.title} industry`}

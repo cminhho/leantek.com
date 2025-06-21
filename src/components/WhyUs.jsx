@@ -138,10 +138,10 @@ const WhyUs = () => {
   ]
 
   return (
-    <section className="bg-black py-20">
-      <div className="container mx-auto px-4">
+    <section className="bg-black py-12 sm:py-16 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2 
-          className="text-7xl font-light text-white mb-16"
+          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-white mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -150,30 +150,30 @@ const WhyUs = () => {
           Why choose LeanTek
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-8 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-8 gap-8 lg:gap-16">
           {/* Benefits List */}
-          <div className="space-y-8 col-span-5">
+          <div className="space-y-6 lg:space-y-8 col-span-1 lg:col-span-5">
             {benefits.map((benefit, index) => (
               <motion.div 
                 key={index}
-                className="border-t border-gray-800 pt-8 first:border-t-0 first:pt-0 grid grid-cols-3 gap-8"
+                className="border-t border-gray-800 pt-6 lg:pt-8 first:border-t-0 first:pt-0 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <h3 className="text-gray-200 text-base font-normal col-span-1">{benefit.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-base col-span-2">{benefit.description}</p>
+                <h3 className="text-gray-200 text-sm sm:text-base font-normal col-span-1">{benefit.title}</h3>
+                <p className="text-gray-400 leading-relaxed text-sm sm:text-base col-span-1 lg:col-span-2">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
 
           {/* Partner Logos Grid */}
-          <div className="grid grid-cols-4 gap-8 items-center col-span-3">
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-center col-span-1 lg:col-span-3 mt-8 lg:mt-0">
             {partnerLogos.map((logo, index) => (
               <motion.div
                 key={index}
-                className="flex items-center justify-center p-4"
+                className="flex items-center justify-center p-2 sm:p-3 lg:p-4"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -182,7 +182,7 @@ const WhyUs = () => {
                 <img 
                   src={logo.src} 
                   alt={logo.alt}
-                  className="max-w-full h-12 w-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 object-contain"
+                  className="max-w-full h-8 sm:h-10 lg:h-12 w-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 object-contain"
                 />
               </motion.div>
             ))}

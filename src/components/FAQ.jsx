@@ -60,10 +60,10 @@ const FAQ = () => {
   }
 
   return (
-    <section className="py-20  bg-gray-50" id="faq">
-      <div className="container mx-auto">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gray-50" id="faq">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
-          className="text-7xl font-light mb-16"
+          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -83,10 +83,10 @@ const FAQ = () => {
               className="border-b border-gray-200 last:border-b-0"
             >
               <button
-                className="w-full py-6 text-left flex justify-between items-center group"
+                className="w-full py-4 sm:py-6 text-left flex justify-between items-center group"
                 onClick={() => toggleQuestion(index)}
               >
-                <span className="text-lg text-gray-900">
+                <span className="text-base sm:text-lg text-gray-900 pr-4">
                   {faq.question}
                 </span>
                 <motion.div
@@ -95,9 +95,9 @@ const FAQ = () => {
                     color: openIndex === index ? '#FF0000' : '#000000'
                   }}
                   transition={{ duration: 0.2 }}
-                  className="flex-shrink-0 ml-4"
+                  className="flex-shrink-0"
                 >
-                  <PlusIcon className="w-6 h-6" />
+                  <PlusIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.div>
               </button>
               
@@ -109,8 +109,8 @@ const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="pb-6">
-                      <p className="text-gray-600 leading-relaxed pr-12">
+                    <div className="pb-4 sm:pb-6">
+                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed pr-8 sm:pr-12">
                         {faq.answer}
                       </p>
                     </div>

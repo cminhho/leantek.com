@@ -54,10 +54,10 @@ const ContactForm = () => {
   ]
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
-          className="text-7xl font-light mb-16"
+          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -67,7 +67,7 @@ const ContactForm = () => {
         </motion.h2>
 
         <motion.p
-          className="mb-12"
+          className="mb-8 sm:mb-10 lg:mb-12 text-sm sm:text-base"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -77,10 +77,10 @@ const ContactForm = () => {
           {" "}or fill out the form below and we'll get back to you once we've processed your request.
         </motion.p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
           <div className="lg:col-span-2">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm mb-2">Name*</label>
                   <input
@@ -90,7 +90,7 @@ const ContactForm = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-0 py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent"
+                    className="w-full px-0 py-3 sm:py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent text-base"
                   />
                 </div>
                 
@@ -103,12 +103,12 @@ const ContactForm = () => {
                     value={formData.company}
                     onChange={handleChange}
                     required
-                    className="w-full px-0 py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent"
+                    className="w-full px-0 py-3 sm:py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent text-base"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="email" className="block text-sm mb-2">Corporate email*</label>
                   <input
@@ -118,7 +118,7 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-0 py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent"
+                    className="w-full px-0 py-3 sm:py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent text-base"
                   />
                 </div>
                 
@@ -131,7 +131,7 @@ const ContactForm = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-0 py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent"
+                    className="w-full px-0 py-3 sm:py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent text-base"
                   />
                 </div>
               </div>
@@ -143,7 +143,7 @@ const ContactForm = () => {
                   name="projectBudget"
                   value={formData.projectBudget}
                   onChange={handleChange}
-                  className="w-full px-0 py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent"
+                  className="w-full px-0 py-3 sm:py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent text-base"
                 >
                   <option value="">Select budget range</option>
                   <option value="10-25k">$10,000 - $25,000</option>
@@ -162,16 +162,16 @@ const ContactForm = () => {
                   onChange={handleChange}
                   required
                   rows="4"
-                  className="w-full px-0 py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent resize-none"
+                  className="w-full px-0 py-3 sm:py-2 border-0 border-b border-gray-300 focus:border-gray-900 focus:ring-0 bg-transparent resize-none text-base"
                 ></textarea>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <p className="text-sm mb-2">Send us a voice message</p>
                   <button
                     type="button"
-                    className="w-full px-4 py-3 border border-dashed border-gray-600  flex items-center justify-center gap-2 hover:bg-gray-50"
+                    className="w-full px-4 py-4 sm:py-3 border border-dashed border-gray-600 flex items-center justify-center gap-2 hover:bg-gray-50 text-base"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" fill="currentColor"/>
@@ -185,7 +185,7 @@ const ContactForm = () => {
                   <p className="text-sm mb-2">Attach documents</p>
                   <label
                     htmlFor="fileUpload"
-                    className="w-full px-4 py-3 border border-dashed border-gray-600 flex items-center justify-center gap-2 hover:bg-gray-50 cursor-pointer"
+                    className="w-full px-4 py-4 sm:py-3 border border-dashed border-gray-600 flex items-center justify-center gap-2 hover:bg-gray-50 cursor-pointer text-base"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
@@ -202,7 +202,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              <div className="text-sm text-gray-600">
+              <div className="text-xs sm:text-sm text-gray-600">
                 By clicking Send, you consent to leantek processing your personal data per our{' '}
                 <a href="/privacy-policy" className="text-black hover:text-gray-700">Privacy Policy</a>
                 {' '}to provide you with relevant information. By submitting your phone number, you agree that we may contact you via voice calls, SMS, and messaging apps. Calling, message, and data rates may apply.
@@ -210,7 +210,7 @@ const ContactForm = () => {
 
               <button 
                 type="submit"
-                className="px-12 py-3 bg-red-500 text-white hover:bg-red-600 transition-colors"
+                className="px-8 sm:px-12 py-4 sm:py-3 bg-red-500 text-white hover:bg-red-600 transition-colors text-base"
               >
                 Send
               </button>
@@ -218,15 +218,15 @@ const ContactForm = () => {
           </div>
 
           <div className="lg:col-span-1">
-            <div className="bg-gray-50 p-8 ">
-              <h3 className="text-2xl font-normal mb-8">What happens next?</h3>
-              <div className="space-y-8">
+            <div className="bg-gray-50 p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-normal mb-6 sm:mb-8">What happens next?</h3>
+              <div className="space-y-6 sm:space-y-8">
                 {nextSteps.map((step, index) => (
-                  <div key={index} className="flex gap-6">
-                    <div className="flex-shrink-0 w-8 h-8 -full border-2 border-black flex items-center justify-center font-medium">
+                  <div key={index} className="flex gap-4 sm:gap-6">
+                    <div className="flex-shrink-0 w-8 h-8 border-2 border-black flex items-center justify-center font-medium text-sm">
                       {step.number}
                     </div>
-                    <p className="text-gray-600">{step.text}</p>
+                    <p className="text-gray-600 text-sm sm:text-base">{step.text}</p>
                   </div>
                 ))}
               </div>
@@ -234,8 +234,8 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <div className="mt-16 text-center">
-          <p className="text-gray-600">
+        <div className="mt-12 sm:mt-16 text-center">
+          <p className="text-gray-600 text-sm sm:text-base">
             You can also send us your request to{' '}
             <a href="mailto:contact@leantek.com" className="text-red-500 hover:text-red-600">
               contact@leantek.com

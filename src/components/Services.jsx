@@ -129,25 +129,25 @@ const Services = () => {
   }
 
   return (
-    <section className="py-24 bg-white" id="services">
-      <div className="container mx-auto">
-        <div className="flex justify-between items-center mb-20">
-          <h2 className="text-7xl font-light text-gray-900">
+    <section className="py-12 sm:py-16 lg:py-24 bg-white" id="services">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 sm:mb-12 lg:mb-20">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-900 mb-4 sm:mb-0">
             Services
           </h2>
           
           <Link 
             to="/services" 
-            className="text-gray-900 hover:text-red-600 transition-colors text-base font-normal underline underline-offset-8"
+            className="text-gray-900 hover:text-red-600 transition-colors text-sm sm:text-base font-normal underline underline-offset-8"
           >
             All services
           </Link>
         </div>
 
-        <div className="flex gap-20">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-20">
           {/* Main services list - Left column */}
-          <div className="w-1/3">
-            <div className="space-y-8">
+          <div className="w-full lg:w-1/3">
+            <div className="space-y-6 lg:space-y-8">
               {Object.entries(services).map(([key, service]) => (
                 <motion.div 
                   key={key}
@@ -158,7 +158,7 @@ const Services = () => {
                   className={`group cursor-pointer`}
                   onClick={() => setActiveService(key)}
                 >
-                  <h3 className={`text-[24px] font-normal mb-4 transition-colors ${
+                  <h3 className={`text-xl sm:text-2xl lg:text-[24px] font-normal mb-3 lg:mb-4 transition-colors ${
                     activeService === key ? 'text-red-600' : 'text-gray-900 group-hover:text-red-600'
                   }`}>
                     {service.title}
@@ -169,7 +169,7 @@ const Services = () => {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="text-[16px] text-gray-600 leading-relaxed mb-6"
+                      className="text-sm sm:text-base lg:text-[16px] text-gray-600 leading-relaxed mb-4 lg:mb-6"
                     >
                       {service.description}
                     </motion.p>
@@ -179,7 +179,7 @@ const Services = () => {
 
               <Link 
                 to="/services"
-                className="inline-flex items-center text-gray-900 hover:text-red-600 transition-colors mt-8"
+                className="inline-flex items-center text-gray-900 hover:text-red-600 transition-colors mt-6 lg:mt-8"
               >
                 See more
                 <svg className="ml-2 w-4 h-4" viewBox="0 0 24 24" fill="none">
@@ -191,27 +191,26 @@ const Services = () => {
           </div>
 
           {/* Service cards grid - Right column */}
-          <div className="w-2/3">
+          <div className="w-full lg:w-2/3 mt-8 lg:mt-0">
             <motion.div 
               key={activeService}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
-              className="grid grid-cols-2 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8"
             >
               {services[activeService].cards.map((card, index) => (
-                <motion.div 
-                  key={card.title}
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-gray-100 p-8 hover:shadow-md transition-all duration-300 group cursor-pointer"
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="bg-gray-50 p-4 sm:p-6 hover:bg-gray-100 transition-colors"
                 >
-                  <h4 className="text-[20px] font-normal text-gray-900 mb-4 group-hover:text-red-600 transition-colors">
+                  <h4 className="text-lg sm:text-xl font-medium text-gray-900 mb-3 sm:mb-4">
                     {card.title}
                   </h4>
-                  <p className="text-[16px] text-gray-600 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                     {card.description}
                   </p>
                 </motion.div>

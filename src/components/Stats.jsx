@@ -21,27 +21,27 @@ const Stats = () => {
   ];
 
   return (
-    <section className="bg-[#1C1C1C] py-20">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+    <section className="bg-[#1C1C1C] py-12 sm:py-16 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
           {stats.slice(0, 4).map((stat, index) => (
-            <div key={index} className="bg-[#2A2A2A] p-14 -lg">
-              <h3 className="text-4xl font-bold text-white mb-2">{stat.value}</h3>
-              <p className="text-gray-400">{stat.description}</p>
+            <div key={index} className="bg-[#2A2A2A] p-6 sm:p-8 lg:p-12 xl:p-14 rounded-lg">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">{stat.value}</h3>
+              <p className="text-sm sm:text-base text-gray-400">{stat.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="flex justify-end mb-12">
-          <a href="/about" className="text-white flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <div className="flex justify-center sm:justify-end mb-8 sm:mb-12">
+          <a href="/about" className="text-white flex items-center gap-2 hover:opacity-80 transition-opacity text-sm sm:text-base">
             About us
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="20" height="20" sm:width="24" sm:height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </a>
         </div>
 
-        <div className="text-gray-400 space-y-6 max-w-4xl font-light">
+        <div className="text-gray-400 space-y-4 sm:space-y-6 max-w-4xl font-light text-sm sm:text-base">
           <p>
             As a leading software development company, we've spent over a decade helping businesses around the 
             globe tackle real challenges with smart, effective software solutions. From North America to Europe, Asia 
