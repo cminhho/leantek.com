@@ -102,7 +102,8 @@ const Services = () => {
       cards: [
         {
           title: 'Enterprise resource planning',
-          description: 'We build ERP systems that simplify complex operations, bring everything together, and make managing your business easier.'
+          description: 'We build ERP systems that simplify complex operations, bring everything together, and make managing your business easier.',
+          link: '/services/erp'
         },
         {
           title: 'Customer relationship management',
@@ -130,7 +131,7 @@ const Services = () => {
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-white" id="services">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 sm:mb-12 lg:mb-20">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-900 mb-4 sm:mb-0">
             Services
@@ -158,7 +159,7 @@ const Services = () => {
                   className={`group cursor-pointer`}
                   onClick={() => setActiveService(key)}
                 >
-                  <h3 className={`text-xl sm:text-2xl lg:text-[24px] font-normal mb-3 lg:mb-4 transition-colors ${
+                  <h3 className={`text-xl sm:text-2xl lg:text-2xl font-light mb-3 lg:mb-4 transition-colors ${
                     activeService === key ? 'text-red-600' : 'text-gray-900 group-hover:text-red-600'
                   }`}>
                     {service.title}
@@ -169,7 +170,7 @@ const Services = () => {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="text-sm sm:text-base lg:text-[16px] text-gray-600 leading-relaxed mb-4 lg:mb-6"
+                      className="text-xs lg:text-[16px] text-gray-800 leading-relaxed mb-4 lg:mb-6"
                     >
                       {service.description}
                     </motion.p>
@@ -191,7 +192,7 @@ const Services = () => {
           </div>
 
           {/* Service cards grid - Right column */}
-          <div className="w-full lg:w-2/3 mt-8 lg:mt-0">
+          <div className="w-full lg:w-2/3 mt-0">
             <motion.div 
               key={activeService}
               initial={{ opacity: 0, x: 20 }}
@@ -205,14 +206,34 @@ const Services = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="bg-gray-50 p-4 sm:p-6 hover:bg-gray-100 transition-colors"
+                  className="bg-gray-100 p-4 sm:p-6 hover:bg-gray-100 transition-colors group relative"
                 >
-                  <h4 className="text-lg sm:text-xl font-medium text-gray-900 mb-3 sm:mb-4">
-                    {card.title}
-                  </h4>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  {card.link ? (
+                    <Link 
+                      to={card.link}
+                      className="block"
+                    >
+                      <h4 className="text-sm lg:text-lg font-medium text-red-700 sm:mb-4 hover:text-red-800 transition-colors cursor-pointer">
+                        {card.title}
+                      </h4>
+                    </Link>
+                  ) : (
+                    <h4 className="text-sm lg:text-lg font-medium text-gray-900 sm:mb-4 hover:text-red-600">
+                      {card.title}
+                    </h4>
+                  )}
+                  
+                  <p className="hidden sm:block text-xs mt-3 lg:text-sm text-gray-600 leading-relaxed font-light">
                     {card.description}
                   </p>
+
+                  {/* Arrow that appears on hover */}
+                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg className="w-5 h-5 text-red-600" viewBox="0 0 24 24" fill="none">
+                      <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M19 12H4.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>

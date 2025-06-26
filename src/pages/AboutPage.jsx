@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import ContactForm from '../components/ContactForm'
+import TableOfContentsNav from '../components/TableOfContentsNav'
 import { ArrowTrendingUpIcon, ArrowPathIcon, EyeIcon, UsersIcon } from '@heroicons/react/24/solid'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation } from 'swiper/modules'
@@ -11,6 +12,8 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 const AboutPage = () => {
+  // Image URLs
+  const companyImageUrl = `${import.meta.env.BASE_URL}images/company/company-image.png`
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0)
@@ -19,6 +22,19 @@ const AboutPage = () => {
     document.title = 'About Us - Leantek2'
   }, [])
 
+  // Table of Contents sections
+  const tocSections = [
+    { id: 'brief-facts', title: 'Brief facts' },
+    { id: 'mission-vision', title: 'Mission and vision' },
+    { id: 'history', title: 'LeanTek history' },
+    { id: 'challenges', title: 'Challenges we help to solve' },
+    { id: 'why-us', title: 'Why Us?' },
+    { id: 'our-team', title: 'Our Teams' },
+    { id: 'available-developers', title: 'Available developers for hire' },
+    { id: 'testimonials', title: 'Testimonials' },
+    { id: 'contact', title: 'Contact' }
+  ]
+
   const stats = [
     { 
       number: "6+", 
@@ -26,7 +42,7 @@ const AboutPage = () => {
       description: "A considerable experience in the IT market allows our company to leverage a rich technological and business management expertise to complete projects of various complexity levels most efficiently and quickly."
     },
     { 
-      number: "20+", 
+      number: "25+", 
       label: "IT professionals",
       description: "LeanTek is constantly increasing the number of highly qualified IT specialists in-house. Besides developers, our team consists of business analysts, UI/UX designers, QA specialists, and DevOps engineers."
     },
@@ -50,10 +66,6 @@ const AboutPage = () => {
       label: "customers from 60+ countries",
       description: "We are supporters of a customer-oriented approach and position our relationships with clients as professionals for professionals."
     }
-  ]
-
-  const technologies = [
-    "Java", "Python", "JavaScript", "React", "Angular", "Vue.js", "Node.js", "AWS", ".NET", "PHP", "Go", "TypeScript"
   ]
   
   const whyLeantek = [
@@ -228,15 +240,17 @@ const AboutPage = () => {
   return (
     // pt-32 pb-20 
     <div className="bg-black text-gray-800">
+      {/* Table of Contents Navigation */}
+      <TableOfContentsNav sections={tocSections} title="About Us" />
       <style jsx>{`
         .developer-swiper {
           width: 100%;
           padding: 0 !important;
-          overflow: visible;
+          overflow: hidden;
         }
         .developer-swiper .swiper-wrapper {
           align-items: stretch;
-          padding-left: max(1.5rem, calc((100vw - 1280px) / 2));
+          padding-left: max(1rem, calc((100vw - 1400px) / 2));
         }
         .developer-swiper .swiper-slide {
           height: auto !important;
@@ -301,7 +315,7 @@ const AboutPage = () => {
       </motion.section>
       
       {/* Brief facts Section */}
-      <section className="py-20 bg-white">
+      <section id="brief-facts" className="py-20 bg-white">
         <div className="container">
           <div className="max-w-3xl mb-16">
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">Brief facts</h2>
@@ -329,7 +343,7 @@ const AboutPage = () => {
       </section>
 
       {/* Mission and Vision Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="mission-vision" className="py-20 bg-gray-50">
         <div className="container">
             <div className="max-w-3xl mb-16">
                 <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">Mission and vision</h2>
@@ -360,7 +374,7 @@ const AboutPage = () => {
       </section>
 
       {/* Innowise History Section */}
-      <section className="py-20 bg-white">
+      <section id="history" className="py-20 bg-white">
         <div className="container">
           <motion.h2 
             className="text-3xl md:text-4xl font-light mb-16"
@@ -387,7 +401,7 @@ const AboutPage = () => {
       </section>
 
       {/* Challenges Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="challenges" className="py-20 bg-gray-50">
         <div className="container">
           <motion.h2 
             className="text-4xl font-light mb-16"
@@ -491,7 +505,7 @@ const AboutPage = () => {
 
 
       {/* Why Leantek Section */}
-      <section className="py-20 bg-white">
+      <section id="why-us" className="py-20 bg-white">
         <div className="container">
           <div className="max-w-3xl mb-16">
               <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">Why Us?</h2>
@@ -516,7 +530,7 @@ const AboutPage = () => {
       </section>
 
       {/* Our Team Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="our-team" className="py-20 bg-gray-50">
         <div className="container">
           <motion.h2 
             className="text-3xl md:text-4xl font-light text-gray-900 mb-16"
@@ -559,7 +573,7 @@ const AboutPage = () => {
               className="flex justify-center"
             >
               <img 
-                src="https://innowise.com/wp-content/uploads/2022/01/image-126.png" 
+                src={companyImageUrl} 
                 alt="Our Team" 
                 className="w-full max-w-md h-auto object-contain rounded-lg"
               />
@@ -569,7 +583,7 @@ const AboutPage = () => {
       </section>
 
       {/* Available Developers Section */}
-      <section className="py-20 bg-white">
+      <section id="available-developers" className="py-20 bg-white">
         <div className="container">
           <motion.h2 
             className="text-3xl md:text-4xl font-light text-gray-900 mb-16"
@@ -615,11 +629,11 @@ const AboutPage = () => {
                 slidesPerView: 3.5,
                 spaceBetween: 20,
               },
-              1280: {
+              1400: {
                 slidesPerView: 4.2,
                 spaceBetween: 20,
               },
-              1536: {
+              1600: {
                 slidesPerView: 5,
                 spaceBetween: 20,
               },
@@ -707,7 +721,7 @@ const AboutPage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="testimonials" className="py-20 bg-gray-50">
         <div className="container">
           <motion.h2 
             className="text-3xl md:text-4xl font-light text-gray-900 mb-16"
@@ -771,7 +785,9 @@ const AboutPage = () => {
       </section>
 
       {/* ContactForm Section */}
-      <ContactForm />
+      <div id="contact">
+        <ContactForm />
+      </div>
     </div>
   )
 }

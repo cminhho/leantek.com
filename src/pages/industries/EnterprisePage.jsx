@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import TableOfContentsNav from '../../components/TableOfContentsNav'
 
 // Animation variants for consistent page transitions
 const pageVariants = {
@@ -9,7 +10,16 @@ const pageVariants = {
 }
 
 const EnterprisePage = () => {
+  // Image URLs
+  const enterpriseBackgroundUrl = `${import.meta.env.BASE_URL}images/backgrounds/Enterprise.png`
   const [selectedSolution, setSelectedSolution] = useState('ENTERPRISE LEARNING MANAGEMENT SYSTEMS')
+
+  // Table of Contents sections
+  const tocSections = [
+    { id: "hero", title: "Enterprise Software Development" },
+    { id: "solutions", title: "Enterprise Solutions" },
+    { id: "cta", title: "Get Started" }
+  ]
 
   const solutions = {
     'ENTERPRISE RESOURCE PLANNING SYSTEMS': {
@@ -76,8 +86,14 @@ const EnterprisePage = () => {
       transition={{ duration: 0.4 }}
       className="min-h-screen bg-gray-50"
     >
+      {/* Table of Contents Navigation */}
+      <TableOfContentsNav 
+        sections={tocSections}
+        title="Enterprise Development Guide"
+      />
+
       {/* Hero Section */}
-      <div className="bg-[#1E1F25] text-white py-32">
+      <div id="hero" className="bg-[#1E1F25] text-white py-32">
         <div className="container mx-auto px-4">
           <motion.h1 
             className="text-5xl font-bold mb-6"
@@ -100,7 +116,7 @@ const EnterprisePage = () => {
       </div>
 
       {/* Enterprise Solutions Section */}
-      <div className="container mx-auto px-4 py-16">
+      <div id="solutions" className="container mx-auto px-4 py-16">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -181,9 +197,10 @@ const EnterprisePage = () => {
 
       {/* Call to Action Section */}
       <div 
+        id="cta"
         className="relative py-20 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://innowise.com/wp-content/uploads/2023/03/Enterprise.png')`
+                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${enterpriseBackgroundUrl}')`
         }}
       >
         <div className="container mx-auto px-4 text-center">

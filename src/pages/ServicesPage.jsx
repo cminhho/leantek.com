@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import ContactForm from '../components/ContactForm'
+import TableOfContentsNav from '../components/TableOfContentsNav'
 
 const ServiceCategory = ({ id, title, description, services, bgColor = "bg-gray-50" }) => {
   return (
@@ -12,44 +13,63 @@ const ServiceCategory = ({ id, title, description, services, bgColor = "bg-gray-
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-light mb-8 text-gray-900">{title}</h2>
-          <div className="w-24 h-0.5 bg-red-600 mx-auto mb-8"></div>
-          <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">{description}</p>
+          <h2 className="text-2xl md:text-4xl font-light mb-8 text-gray-900">{title}</h2>
+          <div className="w-24 h-0.5 bg-red-600 mb-8"></div>
+          <p className="text-gray-800 max-w-4xl text-base leading-relaxed">{description}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-            >
-              <div className="p-8">
-                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} flex items-center justify-center text-white mb-6`}>
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">{service.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                {service.subServices && (
-                  <div className="border-t border-gray-100 pt-6">
-                    <ul className="space-y-3">
-                      {service.subServices.map((subService, subIndex) => (
-                        <li key={subIndex} className="flex items-start">
-                          <div className="w-2 h-2 bg-red-600 mt-2 mr-3 flex-shrink-0"></div>
-                          <span className="text-sm text-gray-700 leading-relaxed">{subService}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          ))}
+          {services.map((service, index) => {
+            const ServiceWrapper = service.link ? Link : 'div';
+            const wrapperProps = service.link ? { to: service.link } : {};
+            
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="border border-gray-400"
+              >
+                <ServiceWrapper 
+                  {...wrapperProps}
+                  className={`block p-8 h-full ${service.link ? 'hover:bg-gray-50 transition-colors duration-200' : ''}`}
+                >
+                  <h3 className={`text-xl font-semibold mb-4 text-gray-900 ${service.link ? 'hover:text-red-600 transition-colors duration-200 underline decoration-red-600 decoration-1 underline-offset-4' : ''}`}>
+                     {service.title}
+                   </h3>
+                  <p className="text-sm text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                  {service.subServices && (
+                    <div className="border-t border-gray-100 pt-6">
+                      <ul className="space-y-3">
+                        {service.subServices.map((subService, subIndex) => (
+                          <li key={subIndex} className="flex items-start">
+                            <div className="w-2 h-2 bg-red-600 mt-2 mr-3 flex-shrink-0"></div>
+                            {typeof subService === 'object' && subService.link ? (
+                              <Link 
+                                to={subService.link} 
+                                className="text-sm text-gray-800 leading-relaxed hover:text-red-600 transition-colors duration-200 underline decoration-red-600 decoration-1 underline-offset-2"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                {subService.name}
+                              </Link>
+                            ) : (
+                              <span className="text-sm text-gray-800 leading-relaxed">
+                                {typeof subService === 'object' ? subService.name : subService}
+                              </span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </ServiceWrapper>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -219,13 +239,14 @@ const ServicesPage = () => {
           title: "ERP & CRM",
           description: "Enterprise resource planning and customer relationship management solutions to streamline your business operations.",
           color: "from-gray-600 to-gray-700",
+          link: "/services/erp",
           icon: (
             <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
           ),
           subServices: [
-            "ERP system implementation",
+            { name: "ERP system implementation", link: "/services/erp" },
             "CRM platform development",
             "System integration",
             "Data migration",
@@ -353,6 +374,7 @@ const ServicesPage = () => {
           title: "FinTech & Banking",
           description: "Secure and compliant financial technology solutions for banking, payments, and financial services.",
           color: "from-red-600 to-red-700",
+          link: "/industries/banking",
           icon: (
             <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
               <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
@@ -363,7 +385,7 @@ const ServicesPage = () => {
             "POS software",
             "Digital banking platforms",
             "Payment processing systems",
-            "BNPL solutions",
+            { name: "BNPL solutions", link: "/industries/finance/buy-now-pay-later" },
             "Lending solutions",
             "Merchant Cash Advance solutions",
             "Risk management systems",
@@ -390,10 +412,35 @@ const ServicesPage = () => {
             "SAP",
             "POS",
           ]
+        },
+        {
+          title: "Agriculture & Food Safety",
+          description: "Comprehensive Agriculture 4.0 management system with complete food traceability and international standards compliance.",
+          color: "from-green-600 to-green-700",
+          link: "/cases/vfsc-food-safety-chain",
+          icon: (
+            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          ),
+          subServices: [
+            "Smart farm management system",
+            "Food traceability platform",
+            "Agricultural production tracking",
+            "Quality control automation",
+            "Compliance monitoring system",
+            "Supply chain integration"
+          ]
         }
       ]
     }
   ]
+
+  // Prepare sections for the navigation component
+  const navigationSections = serviceCategories.map(category => ({
+    id: category.id,
+    title: category.title
+  }))
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -405,12 +452,18 @@ const ServicesPage = () => {
 
   return (
     <>
+      {/* Table of Contents Navigation */}
+      <TableOfContentsNav 
+        sections={navigationSections}
+        title="Services"
+      />
+
       {/* Hero Section */}
       <section className="pt-40 pb-24 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
         <div className="container">
           <div className="max-w-4xl">
             <motion.h1 
-              className="text-5xl md:text-6xl font-light mb-8 text-white"
+              className="text-4xl md:text-6xl font-light mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -426,30 +479,13 @@ const ServicesPage = () => {
             />
             
             <motion.p 
-              className="text-xl text-gray-300 mb-12 leading-relaxed"
+              className="text-base lg:text-base text-gray-300 mb-12 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               LeanTek delivers comprehensive software engineering and development services for IT product companies, non-IT enterprises, and innovative start-ups across various industries. Our multi-skilled experienced team facilitates businesses worldwide on their digital transformation journey, helping companies leverage IT innovations at every project stage.
             </motion.p>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Navigation */}
-      <section className="py-6 bg-white sticky top-0 z-20 shadow-md border-b border-gray-200">
-        <div className="container">
-          <div className="flex flex-wrap justify-center gap-2">
-            {serviceCategories.map((category, index) => (
-              <a 
-                key={index}
-                href={`#${category.id}`}
-                className="px-6 py-3 bg-gray-50 hover:bg-red-600 hover:text-white transition-all duration-300 text-sm font-medium text-gray-700 border border-gray-200"
-              >
-                {category.title}
-              </a>
-            ))}
           </div>
         </div>
       </section>

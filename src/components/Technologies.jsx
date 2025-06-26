@@ -201,7 +201,7 @@ const Technologies = () => {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white" id="technologies">
-      <div className="container px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8 sm:mb-10 lg:mb-12 gap-4">
           <motion.h2
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-900"
@@ -213,7 +213,7 @@ const Technologies = () => {
             Technologies
           </motion.h2>
           
-          <Link to="/technologies" className="text-gray-700 font-medium hover:text-primary transition-colors underline underline-offset-8 text-sm sm:text-base">
+          <Link to="/technologies" className="text-gray-700 font-medium hover:text-red-600 transition-colors underline underline-offset-8 text-sm sm:text-base">
             All technologies
           </Link>
         </div>
@@ -244,7 +244,7 @@ const Technologies = () => {
           transition={{ duration: 0.5 }}
         >
           {/* Left Side - Technology Subcategories */}
-          <div className="space-y-4 sm:space-y-6">
+          <div className="hidden sm:block space-y-4 sm:space-y-6">
             {technologies[activeTab].subcategories.map((subcategory, index) => (
               <motion.div
                 key={index}
@@ -254,10 +254,10 @@ const Technologies = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="flex flex-col space-y-2">
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                  <h3 className="text-base lg:text-xl font-light text-gray-800">
                     {subcategory.name}
                   </h3>
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  <p className="text-gray-500 text-xs lg:text-sm leading-relaxed">
                     {subcategory.description}
                   </p>
                 </div>

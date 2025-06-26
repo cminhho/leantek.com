@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import ContactForm from '../../components/ContactForm'
+import TableOfContentsNav from '../../components/TableOfContentsNav'
 
 // Animation variants for consistent page transitions
 const pageVariants = {
@@ -9,8 +11,29 @@ const pageVariants = {
 }
 
 const BankingPage = () => {
+  // Image URLs
+  const bankingSchemeUrl = `${import.meta.env.BASE_URL}images/diagrams/banking-scheme.png`
+  const backgroundUrl = `${import.meta.env.BASE_URL}images/backgrounds/background-1.png`
   const [selectedSolution, setSelectedSolution] = useState('INTERNET_BANKING')
-  const [selectedTechCategory, setSelectedTechCategory] = useState('Programming Languages')
+  const [openFAQ, setOpenFAQ] = useState(null)
+
+  // Table of Contents sections
+  const tocSections = [
+    { id: "hero", title: "Banking Software Development" },
+    { id: "it-services", title: "IT Services for Banks" },
+    { id: "solutions", title: "Banking Software Solutions" },
+    { id: "advanced-tech", title: "Advanced Technology Solutions" },
+    { id: "ai-banking", title: "AI in Banking" },
+    { id: "cost-factors", title: "Cost Factors" },
+    { id: "cost-estimation", title: "Cost Estimation" },
+    { id: "why-choose", title: "Why Choose LeanTek" },
+    { id: "technologies", title: "Technologies We Use" },
+    { id: "methodology", title: "Development Methodology" },
+    { id: "case-studies", title: "Case Studies" },
+    { id: "testimonials", title: "Customer Testimonials" },
+    { id: "faq", title: "FAQ" },
+    { id: "contact", title: "Contact Us" }
+  ]
 
   const itServices = {
     'LENDING': {
@@ -81,11 +104,6 @@ const BankingPage = () => {
       description: 'Our credit scoring systems help banks assess borrower risk, automate lending decisions, and comply with regulatory requirements while reducing manual processing time.',
       image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80'
     },
-    'COMPLIANCE_RISK': {
-      title: 'Compliance and risk management solutions',
-      description: 'We develop comprehensive compliance and risk management systems that help banks meet regulatory requirements, monitor transactions, and maintain audit trails.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80'
-    },
     'LOAN_MANAGEMENT': {
       title: 'Loan management solutions',
       description: 'Our loan management systems streamline the entire lending process from application to repayment, including automated underwriting, document management, and payment processing.',
@@ -98,17 +116,137 @@ const BankingPage = () => {
     }
   }
 
-  const technologies = {
-    'Programming Languages': ['Java', '.NET', 'Python', 'C#', 'JavaScript', 'Swift', 'Kotlin', 'PHP', 'Ruby', 'Go', 'Rust', 'C/C++', 'COBOL'],
-    'Frameworks & Libraries': ['Spring Boot', 'Django', 'React', 'Angular', 'Vue.js', 'Flutter', 'React Native', '.NET Framework', 'Laravel', 'Ruby on Rails', 'Express.js', 'FastAPI'],
-    'Databases': ['Oracle', 'SQL Server', 'MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'DynamoDB', 'Cassandra', 'Neo4j', 'InfluxDB'],
-    'Cloud Platforms': ['AWS', 'Microsoft Azure', 'Google Cloud Platform', 'IBM Cloud', 'Oracle Cloud'],
-    'Security & Compliance': ['Encryption (AES, RSA)', 'OAuth 2.0', 'JWT', 'SSL/TLS', 'Multi-factor Authentication', 'PCI DSS', 'SOX Compliance', 'GDPR', 'Basel III'],
-    'Payment Systems': ['SWIFT', 'ACH', 'SEPA', 'Visa API', 'Mastercard API', 'PayPal', 'Stripe', 'Square', 'FedNow', 'RTP'],
-    'AI & Analytics': ['Machine Learning', 'TensorFlow', 'PyTorch', 'Scikit-learn', 'Tableau', 'Power BI', 'Apache Spark', 'Hadoop', 'Elasticsearch'],
-    'DevOps & Infrastructure': ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI/CD', 'Terraform', 'Ansible', 'Prometheus', 'Grafana', 'ELK Stack'],
-    'Integration & APIs': ['REST APIs', 'GraphQL', 'SOAP', 'gRPC', 'Apache Kafka', 'RabbitMQ', 'API Gateway', 'Webhooks', 'OpenAPI'],
-    'Specialized Banking Tech': ['Core Banking Systems', 'T24 Temenos', 'SAP Banking', 'Finastra', 'FIS', 'Jack Henry', 'Mambu', 'Backbase']
+  const technologyGroups = {
+    'FRONT END': [
+      { 
+        name: 'React', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+        ecosystem: 'React, Redux, Next.js, React Router, Styled Components, Material-UI'
+      },
+      { 
+        name: 'Angular', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
+        ecosystem: 'Angular, TypeScript, RxJS, Angular Material, NgRx, Angular CLI'
+      },
+      { 
+        name: 'Vue.js', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+        ecosystem: 'Vue.js, Vuex, Nuxt.js, Vue Router, Vuetify, Vue CLI'
+      },
+      { 
+        name: 'TypeScript', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+        ecosystem: 'TypeScript, JavaScript, ES6+, Webpack, Babel, ESLint'
+      }
+    ],
+    'BACK END': [
+      { 
+        name: 'Java', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+        ecosystem: 'Java, Spring Boot, Spring Security, Hibernate, Maven, JUnit'
+      },
+      { 
+        name: '.NET', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg',
+        ecosystem: '.NET Core, ASP.NET, Entity Framework, C#, NuGet, xUnit'
+      },
+      { 
+        name: 'Python', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+        ecosystem: 'Python, Django, FastAPI, Flask, SQLAlchemy, Celery, Pytest'
+      },
+      { 
+        name: 'Node.js', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+        ecosystem: 'Node.js, Express.js, NestJS, TypeScript, npm, Jest'
+      },
+      { 
+        name: 'Go', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
+        ecosystem: 'Go, Gin, Gorilla Mux, GORM, Go Modules, Testify'
+      },
+      { 
+        name: 'C#', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg',
+        ecosystem: 'C#, .NET Framework, ASP.NET MVC, LINQ, Entity Framework'
+      }
+    ],
+    'MOBILE': [
+      { 
+        name: 'Flutter', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
+        ecosystem: 'Flutter, Dart, Firebase, Provider, Bloc, GetX'
+      },
+      { 
+        name: 'React Native', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+        ecosystem: 'React Native, Expo, Redux, React Navigation, AsyncStorage'
+      },
+      { 
+        name: 'iOS', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg',
+        ecosystem: 'iOS, Swift, SwiftUI, UIKit, Core Data, Xcode'
+      },
+      { 
+        name: 'Android', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg',
+        ecosystem: 'Android, Kotlin, Java, Jetpack Compose, Room, Retrofit'
+      }
+    ],
+    'CLOUD & PLATFORMS': [
+      { 
+        name: 'AWS', 
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+        ecosystem: 'AWS, EC2, S3, Lambda, RDS, CloudFormation, EKS'
+      },
+      { 
+        name: 'Azure', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg',
+        ecosystem: 'Azure, App Service, Functions, SQL Database, Key Vault, AKS'
+      },
+      { 
+        name: 'Google Cloud', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg',
+        ecosystem: 'GCP, Compute Engine, Cloud Run, BigQuery, Firebase, GKE'
+      },
+      { 
+        name: 'Kubernetes', 
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
+        ecosystem: 'Kubernetes, Helm, kubectl, Ingress, ConfigMaps, Secrets'
+      },
+      { 
+        name: 'Datadog', 
+        logo: 'https://imgix.datadoghq.com/img/about/presskit/logo-v/dd_vertical_purple.png',
+        ecosystem: 'Datadog, APM, Infrastructure, Logs, Synthetics, Dashboards'
+      }
+    ],
+    'OTHER': [
+      { 
+        name: 'Mambu', 
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Mambu_logo.svg/320px-Mambu_logo.svg.png',
+        ecosystem: 'Mambu, Core Banking, APIs, Process Orchestrator, Data Warehouse'
+      },
+      { 
+        name: 'Databricks', 
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Databricks_Logo.png/320px-Databricks_Logo.png',
+        ecosystem: 'Databricks, Apache Spark, Delta Lake, MLflow, Unity Catalog'
+      },
+      { 
+        name: 'Segment', 
+        logo: 'https://logo.clearbit.com/segment.com',
+        ecosystem: 'Segment, Customer Data Platform, Personas, Protocols, APIs'
+      },
+      { 
+        name: 'Temenos', 
+        logo: 'https://logo.clearbit.com/temenos.com',
+        ecosystem: 'Temenos T24, Transact, Infinity, MarketPlace, Analytics'
+      },
+      { 
+        name: 'Finastra', 
+        logo: 'https://logo.clearbit.com/finastra.com',
+        ecosystem: 'Finastra, Fusion, Essence, FusionFabric.cloud, APIs'
+      }
+    ]
   }
 
   const advancedTechnologies = [
@@ -161,9 +299,22 @@ const BankingPage = () => {
       transition={{ duration: 0.4 }}
       className="min-h-screen bg-white"
     >
+      {/* Table of Contents Navigation */}
+      <TableOfContentsNav 
+        sections={tocSections}
+        title="Banking Development Guide"
+      />
+
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-20 pt-40">
-        <div className="container mx-auto px-6">
+      <div 
+        id="hero"
+        className="relative text-white py-20 pt-40 bg-cover bg-center bg-no-repeat"
+        style={{
+                      backgroundImage: `url('${backgroundUrl}')`
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -185,35 +336,19 @@ const BankingPage = () => {
               </p>
             </div>
             
-            {/* Statistics - Simplified */}
-            <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-gray-700">
-              <div>
-                <div className="text-2xl font-bold text-red-500">5-10%</div>
-                <div className="text-xs text-gray-400 mt-1">Retention Increase</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-red-500">50%</div>
-                <div className="text-xs text-gray-400 mt-1">Faster Processing</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-red-500">90%</div>
-                <div className="text-xs text-gray-400 mt-1">Fraud Detection</div>
-              </div>
-            </div>
-            
             <motion.button
               className="mt-10 bg-red-600 hover:bg-red-700 text-white font-medium px-8 py-3 text-sm transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Start Consultation
+              Let's talk
             </motion.button>
           </motion.div>
         </div>
       </div>
 
       {/* IT Services Section */}
-      <div className="py-16 bg-gray-50">
+      <div id="it-services" className="py-16 ">
         <div className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -223,7 +358,7 @@ const BankingPage = () => {
             className="mb-12"
           >
             <div className="max-w-3xl">
-              <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
+              <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-8">
                 IT Services for Banks
               </h2>
               <div className="w-12 h-0.5 bg-red-600 mb-6"></div>
@@ -237,25 +372,18 @@ const BankingPage = () => {
             {Object.entries(itServices).map(([key, service], index) => (
               <motion.div
                 key={key}
-                className="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                className="bg-gray-50 border border-gray-50 overflow-hidden hover:shadow-lg transition-shadow duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
               >
-                <div className="aspect-[16/9] bg-gray-100">
-                  <img 
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
                     {service.title}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-sm text-gray-700 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -266,7 +394,7 @@ const BankingPage = () => {
       </div>
 
       {/* Banking Software Solutions Section */}
-      <div className="bg-white py-16">
+      <div id="solutions" className="bg-white py-16">
         <div className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -276,7 +404,7 @@ const BankingPage = () => {
             className="mb-12"
           >
             <div className="max-w-3xl">
-              <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
+              <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-8">
                 Banking Software Solutions
               </h2>
               <div className="w-12 h-0.5 bg-red-600 mb-6"></div>
@@ -286,77 +414,31 @@ const BankingPage = () => {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 border border-gray-200">
-            {/* Solutions Menu */}
-            <motion.div 
-              className="lg:col-span-1 border-r border-gray-200"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <div className="bg-gray-50 h-full">
-                <div className="p-4 border-b border-gray-200 bg-gray-100">
-                  <h3 className="text-sm font-bold text-gray-900">Solutions</h3>
-                </div>
-                <div className="p-0">
-                  <div className="space-y-0">
-                    {Object.keys(bankingSolutions).map((solution, index) => (
-                      <motion.button
-                        key={solution}
-                        onClick={() => setSelectedSolution(solution)}
-                        className={`w-full text-left px-4 py-3 border-b border-gray-100 transition-all duration-200 text-sm ${
-                          selectedSolution === solution
-                            ? 'bg-red-50 text-red-700 border-l-2 border-red-600'
-                            : 'text-gray-700 hover:bg-gray-50'
-                        }`}
-                        whileHover={{ x: 5 }}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                      >
-                        <span className="font-medium">
-                          {bankingSolutions[solution].title}
-                        </span>
-                      </motion.button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Solution Details */}
-            <motion.div 
-              className="lg:col-span-3"
-              key={selectedSolution}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="bg-white h-full">
-                <div className="aspect-[16/9] bg-gray-100">
-                  <img 
-                    src={bankingSolutions[selectedSolution].image}
-                    alt={bankingSolutions[selectedSolution].title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    {bankingSolutions[selectedSolution].title}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    {bankingSolutions[selectedSolution].description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {Object.entries(bankingSolutions).map(([key, solution], index) => (
+              <motion.div
+                key={key}
+                className="py-6 hover:shadow-sm transition-shadow duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -2 }}
+              >
+                <h3 className="text-lg font-bold text-gray-900 mb-4">
+                  {solution.title}
+                </h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {solution.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Advanced Banking Technology Solutions Section */}
-      <div className="py-16 bg-gray-50">
+      <div id="advanced-tech" className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -365,7 +447,7 @@ const BankingPage = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
+            <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-4">
               Advanced Banking Technology Solutions
             </h2>
             <div className="w-12 h-0.5 bg-red-600 mb-6"></div>
@@ -378,13 +460,12 @@ const BankingPage = () => {
             {advancedTechnologies.map((tech, index) => (
               <motion.div
                 key={tech.title}
-                className="bg-white border border-gray-200 p-6 hover:shadow-sm transition-shadow duration-300"
+                className="border-gray-200 py-6 hover:shadow-sm transition-shadow duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-2xl mb-4">{tech.icon}</div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">
                   {tech.title}
                 </h3>
@@ -398,7 +479,7 @@ const BankingPage = () => {
       </div>
 
       {/* AI in Banking Section */}
-      <div className="bg-white py-16">
+      <div id="ai-banking" className="bg-white py-16">
         <div className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -407,7 +488,7 @@ const BankingPage = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
+            <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-4">
               Artificial Intelligence in Banking
             </h2>
             <div className="w-12 h-0.5 bg-red-600 mb-6"></div>
@@ -447,7 +528,6 @@ const BankingPage = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-2xl mb-4">{feature.icon}</div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">
                   {feature.title}
                 </h3>
@@ -460,8 +540,8 @@ const BankingPage = () => {
         </div>
       </div>
 
-      {/* Cost Section */}
-      <div className="py-16 bg-gray-50">
+      {/* Cost Factors Section */}
+      <div id="cost-factors" className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -470,63 +550,150 @@ const BankingPage = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
-              Investment in Banking Software Solutions
+            <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-8">
+              How much does it cost to build a banking software solution?
             </h2>
             <div className="w-12 h-0.5 bg-red-600 mb-6"></div>
-            <p className="text-gray-700 max-w-3xl leading-relaxed">
-              Banking software development investment varies based on complexity, features, and compliance requirements. Here are typical investment ranges:
+            <p className="text-gray-700 max-w-4xl leading-relaxed">
+              Developing a turnkey product doesn't come with a fixed price. Before signing an agreement, we discuss specialists' hourly rates and approve project budgets. We advise clients on choosing the best-suited pricing model given their requirements, project scope, and allocated resources. Overall, the final cost is determined by the factors as follows:
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Basic Solutions',
-                range: '$50K - $150K',
-                features: ['Core banking functions', 'Basic security protocols', 'Standard compliance', 'Web interface'],
-                duration: '3-6 months'
+                icon: (
+                  <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                ),
+                title: 'Project complexity',
+                description: 'Simple solutions vs enterprise-level systems with advanced features and integrations'
               },
               {
-                title: 'Advanced Solutions',
-                range: '$150K - $500K',
-                features: ['Mobile banking platform', 'API integrations', 'Advanced security', 'AI-powered features'],
-                duration: '6-12 months'
+                icon: (
+                  <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                ),
+                title: 'Team size',
+                description: 'Number of developers, designers, QA specialists, and project managers required'
               },
               {
-                title: 'Enterprise Solutions',
-                range: '$500K - $2M+',
-                features: ['Complete digital transformation', 'Custom integrations', 'Advanced AI/ML capabilities', 'Global compliance'],
-                duration: '12+ months'
+                icon: (
+                  <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 002 2M8 6V4m0 2v2a2 2 0 002 2m0 0h4m-4 0a2 2 0 01-2-2V8a2 2 0 012-2h4a2 2 0 012 2v2a2 2 0 01-2 2" />
+                  </svg>
+                ),
+                title: 'Team composition',
+                description: 'Senior vs junior specialists, specialized expertise in banking and fintech'
+              },
+              {
+                icon: (
+                  <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3a4 4 0 118 0v4m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                  </svg>
+                ),
+                title: 'Project duration',
+                description: 'Timeline requirements and development phases from MVP to full deployment'
+              },
+              {
+                icon: (
+                  <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                ),
+                title: 'Tech stack',
+                description: 'Technology choices, third-party integrations, and infrastructure requirements'
+              },
+              {
+                icon: (
+                  <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                ),
+                title: 'Hourly rates',
+                description: 'Geographic location of development team and level of expertise required'
               }
-            ].map((tier, index) => (
+            ].map((factor, index) => (
               <motion.div
-                key={tier.title}
-                className="bg-white border border-gray-200 p-6 hover:shadow-sm transition-shadow duration-300"
+                key={factor.title}
+                className="border border-gray-200 p-6 hover:shadow-sm transition-shadow duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-lg font-bold text-gray-900 mb-4">{tier.title}</h3>
-                <div className="text-2xl font-bold text-red-600 mb-3">{tier.range}</div>
-                <div className="text-xs text-gray-600 mb-4 font-medium">Duration: {tier.duration}</div>
-                <div className="space-y-2">
-                  {tier.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start text-sm text-gray-700">
-                      <span className="text-green-600 mr-2 mt-0.5">✓</span>
-                      <span>{feature}</span>
-                    </div>
-                  ))}
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gray-50 flex items-center justify-center mr-4 text-gray-700">
+                    {factor.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {factor.title}
+                  </h3>
                 </div>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {factor.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Technologies Section */}
-      <div className="bg-white py-20">
+      {/* Cost Estimation Section */}
+      <div id="cost-estimation" className="bg-white py-16">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-8">
+              Estimate the costs of implementing your solution
+            </h2>
+            <div className="w-12 h-0.5 bg-red-600 mb-6"></div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mx-auto"
+          >
+            <div className="py-8">
+              <img 
+                src={bankingSchemeUrl}
+                alt="Banking Software Development Cost Estimation Scheme"
+                className="w-full h-auto object-contain"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+              <div className="hidden text-center py-12">
+                <div className="text-gray-500 mb-4">
+                  <svg className="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Banking Software Cost Structure</h3>
+                <p className="text-gray-700">
+                  Comprehensive breakdown of development phases, resource allocation, and implementation timeline for banking software solutions.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+
+      {/* Why Choose leanTek Section */}
+      <div id="why-choose" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -535,99 +702,222 @@ const BankingPage = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
-              Technologies We Use
+            <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-8">
+              Why Choose leanTek for Banking Software Development?
             </h2>
             <div className="w-20 h-1 bg-red-600 mb-8"></div>
-            <p className="text-lg text-gray-700 max-w-3xl leading-relaxed">
-              We leverage cutting-edge technologies and industry-leading tools to build robust, secure, and scalable banking solutions that meet the highest standards of performance and reliability.
+            <p className="text-base text-gray-700 max-w-4xl leading-relaxed">
+              Founded with a commitment to excellence and innovation, leanTek delivers custom banking solutions tailored to your specific needs. Our experienced team combines deep industry expertise with cutting-edge technology to create solutions that drive measurable results.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
-            {/* Tech Categories */}
-            <motion.div 
-              className="lg:col-span-1"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <div className="bg-gray-50 border border-gray-200 h-full">
-                <div className="p-6 border-b border-gray-200">
-                  <h3 className="text-lg font-bold text-gray-900">Technology Stack</h3>
-                </div>
-                <div className="p-6">
-                  <div className="space-y-0">
-                    {Object.keys(technologies).map((category, index) => (
-                      <motion.button
-                        key={category}
-                        onClick={() => setSelectedTechCategory(category)}
-                        className={`w-full text-left px-4 py-4 border-b border-gray-100 transition-all duration-200 ${
-                          selectedTechCategory === category
-                            ? 'bg-red-600 text-white'
-                            : 'text-gray-700 hover:bg-gray-100'
-                        }`}
-                        whileHover={{ x: 5 }}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                      >
-                        <span className="font-semibold text-sm">
-                          {category}
-                        </span>
-                      </motion.button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Tech List */}
-            <motion.div 
-              className="lg:col-span-3"
-              key={selectedTechCategory}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="bg-white border border-gray-200 p-8 h-full">
-                <h3 className="text-xl font-light text-gray-900 mb-6">{selectedTechCategory}</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {technologies[selectedTechCategory].map((tech, index) => (
-                    <motion.div
-                      key={tech}
-                      className="bg-gray-50 border border-gray-200 p-4 text-center hover:bg-red-50 hover:border-red-200 transition-all duration-200"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      whileHover={{ y: -2 }}
-                    >
-                      <span className="font-semibold text-gray-900">{tech}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+             {[
+               {
+                 title: 'Vast Talent Pool',
+                 description: 'Access to 500+ senior developers with specialized banking and fintech expertise, ensuring the right skills for your project.',
+                 icon: (
+                   <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                   </svg>
+                 )
+               },
+               {
+                 title: 'Quick Project Kick-off',
+                 description: 'Streamlined onboarding process gets your project started within 1-2 weeks, reducing time-to-market.',
+                 icon: (
+                   <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                   </svg>
+                 )
+               },
+               {
+                 title: 'Sustainable Product Quality',
+                 description: 'Rigorous testing, code reviews, and quality assurance processes ensure long-term reliability and maintainability.',
+                 icon: (
+                   <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                   </svg>
+                 )
+               },
+               {
+                 title: 'Reasonable Costs',
+                 description: 'Competitive pricing models with transparent cost structure and no hidden fees, maximizing your ROI.',
+                 icon: (
+                   <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                   </svg>
+                 )
+               },
+               {
+                 title: 'Flexible Cooperation Models',
+                 description: 'Choose from dedicated teams, staff augmentation, or project-based engagement models to fit your needs.',
+                 icon: (
+                   <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+                   </svg>
+                 )
+               },
+               {
+                 title: 'Efficient Project Delivery',
+                 description: 'Agile methodology with regular milestones ensures on-time delivery and continuous stakeholder engagement.',
+                 icon: (
+                   <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                   </svg>
+                 )
+               },
+               {
+                 title: 'Compliance Excellence',
+                 description: 'Deep understanding of banking regulations ensures your solution meets all compliance requirements.',
+                 icon: (
+                   <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                   </svg>
+                 )
+               },
+               {
+                 title: 'Innovation Focus',
+                 description: 'Stay ahead with the latest technologies including AI, blockchain, and cloud-native architectures.',
+                 icon: (
+                   <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                   </svg>
+                 )
+               },
+               {
+                 title: '24/7 Support',
+                 description: 'Round-the-clock support and maintenance services ensure your banking systems run smoothly.',
+                 icon: (
+                   <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                   </svg>
+                 )
+               }
+             ].map((feature, index) => (
+               <motion.div
+                 key={feature.title}
+                 className="border border-gray-200 p-6 text-center"
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                 viewport={{ once: true }}
+                 whileHover={{ y: -5 }}
+               >
+                 <div className="w-12 h-12 mx-auto mb-4 text-gray-700">
+                   {feature.icon}
+                 </div>
+                 <h3 className="text-base font-bold text-gray-900 mb-3">
+                   {feature.title}
+                 </h3>
+                 <p className="text-sm text-gray-700 leading-relaxed">
+                   {feature.description}
+                 </p>
+               </motion.div>
+             ))}
           </div>
         </div>
       </div>
 
-      {/* Development Process Section */}
-      <div className="py-20 bg-gray-50">
+      {/* Technologies Section */}
+      <div id="technologies" className="bg-white py-16">
         <div className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-16 text-center"
+            className="mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
+            <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-8">
+              Technologies We Use
+            </h2>
+            <div className="w-12 h-0.5 bg-red-600 mb-6"></div>
+            <p className="text-gray-700 max-w-3xl leading-relaxed">
+              We leverage cutting-edge technologies and industry-leading tools to build robust, secure, and scalable banking solutions that meet the highest standards of performance and reliability.
+            </p>
+          </motion.div>
+
+          <div className="space-y-12">
+            {Object.entries(technologyGroups).map(([groupName, technologies], groupIndex) => (
+              <motion.div
+                key={groupName}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
+                viewport={{ once: true }}
+                className="space-y-6"
+              >
+                <div className="flex items-center space-x-4">
+                  <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wide">
+                    {groupName}
+                  </h3>
+                  <div className="flex-1 h-px bg-gray-200"></div>
+                </div>
+                
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-6">
+                  {technologies.map((tech, index) => (
+                    <motion.div
+                      key={tech.name}
+                      className="relative flex flex-col items-center p-4 bg-gray-50 hover:shadow-sm hover:border-red-200 transition-all duration-300 group"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      viewport={{ once: true }}
+                      whileHover={{ y: -2 }}
+                    >
+                      <div className="w-12 h-12 mb-3 flex items-center justify-center">
+                        <img 
+                          src={tech.logo} 
+                          alt={tech.name}
+                          className="w-10 h-10 object-contain"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'flex';
+                          }}
+                        />
+                        <div 
+                          className="w-10 h-10 bg-red-100 rounded-full items-center justify-center text-red-600 font-bold text-xs hidden"
+                        >
+                          {tech.name.charAt(0)}
+                        </div>
+                      </div>
+                      <span className="text-xs font-medium text-gray-900 text-center leading-tight">
+                        {tech.name}
+                      </span>
+                      
+                      {/* Hover Tooltip - Below tech box */}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-10">
+                        <div className="text-center leading-relaxed">
+                          {tech.ecosystem}
+                        </div>
+                        {/* Arrow pointing up */}
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-900"></div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Development Process Section */}
+      <div id="methodology" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-8">
               Our Development Methodology
             </h2>
-            <div className="w-20 h-1 bg-red-600 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <div className="w-20 h-1 bg-red-600 mb-8"></div>
+            <p className="text-base text-gray-700 max-w-3xl leading-relaxed">
               We follow a structured SDLC approach that ensures quality deliverables and regular stakeholder feedback. Our agile banking software development methodology guarantees exceptional quality while maintaining flexibility for evolving project requirements.
             </p>
           </motion.div>
@@ -674,12 +964,12 @@ const BankingPage = () => {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center mb-6">
-                  <div className="bg-red-600 text-white w-16 h-16 flex items-center justify-center font-bold text-xl mr-4">
+                  <div className="bg-red-600 text-white w-10 h-10 flex items-center justify-center font-bold text-xl mr-4">
                     {phase.step}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">{phase.title}</h3>
                 </div>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-sm text-gray-700 leading-relaxed">
                   {phase.description}
                 </p>
               </motion.div>
@@ -689,22 +979,19 @@ const BankingPage = () => {
       </div>
 
       {/* Case Studies Section */}
-      <div className="bg-white py-20">
+      <div id="case-studies" className="bg-white py-20">
         <div className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-16 text-center"
+            className="mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
+            <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-8">
               Banking IT Solutions: Case Studies
             </h2>
-            <div className="w-20 h-1 bg-red-600 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Explore how we've transformed banking operations through innovative software solutions, delivering measurable results and enhanced customer experiences.
-            </p>
+            <div className="w-20 h-1 bg-red-600 mb-8"></div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -818,22 +1105,19 @@ const BankingPage = () => {
       </div>
 
       {/* Customer Testimonials Section */}
-      <div className="py-20 bg-gray-50">
+      <div id="testimonials" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-16 text-center"
+            className="mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
+            <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-8">
               What Our Customers Think
             </h2>
-            <div className="w-20 h-1 bg-red-600 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Don't just take our word for it. Here's what banking leaders say about our software development services and the transformative impact on their operations.
-            </p>
+            <div className="w-20 h-1 bg-red-600 mb-8"></div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -865,7 +1149,7 @@ const BankingPage = () => {
             ].map((testimonial, index) => (
               <motion.div
                 key={testimonial.author}
-                className="bg-white border border-gray-200 p-8 relative"
+                className="border border-gray-200 p-8 relative"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -874,13 +1158,6 @@ const BankingPage = () => {
                 {/* Quote Icon */}
                 <div className="absolute top-6 right-6 text-4xl text-red-100">
                   "
-                </div>
-                
-                {/* Stars */}
-                <div className="flex mb-6">
-                  {[...Array(testimonial.rating)].map((_, starIndex) => (
-                    <span key={starIndex} className="text-yellow-400 text-xl">★</span>
-                  ))}
                 </div>
 
                 {/* Quote */}
@@ -914,22 +1191,22 @@ const BankingPage = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-white py-20">
+      <div id="faq" className="bg-white py-16">
         <div className="container mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-16 text-center"
+            className="mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
-              Frequently Asked Questions
+            <h2 className="text-2xl lg:text-4xl font-light text-gray-900 mb-8">
+              FAQ
             </h2>
-            <div className="w-20 h-1 bg-red-600 mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-red-600 mb-8"></div>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="max-w-4xl space-y-4">
             {[
               {
                 question: 'How long does it take to develop software for the banking industry?',
@@ -946,214 +1223,59 @@ const BankingPage = () => {
               {
                 question: 'What is the cost range for developing banking software solutions?',
                 answer: 'Banking software development costs vary significantly based on complexity, features, and compliance requirements. Basic solutions typically range from $50K-$150K, advanced solutions with mobile platforms and AI features range from $150K-$500K, while enterprise-level solutions with complete digital transformation capabilities can range from $500K-$2M+. The final cost depends on project scope, team size, development timeline, technology stack, and regulatory requirements.'
-              },
-              {
-                question: 'What is software robotics in banking and how does it benefit operations?',
-                answer: 'Software robotics in banking, also known as Robotic Process Automation (RPA), enables comprehensive automation of manual processes including transaction processing, compliance reporting, customer onboarding, risk assessment, and document verification. Benefits include reduced operational costs, improved accuracy, faster processing times, enhanced compliance, and the ability to handle high-volume transactions 24/7. RPA can boost regulatory compliance efficiency by up to 200% and significantly reduce human error in repetitive tasks.'
-              },
-              {
-                question: 'How do you handle regulatory compliance in banking software development?',
-                answer: 'We ensure compliance with all relevant banking regulations including PCI DSS, SOX, Basel III, GDPR, and local regulatory requirements. Our development process includes compliance checkpoints at each phase, automated compliance monitoring, comprehensive audit trails, and regular compliance assessments. We work closely with regulatory experts and maintain up-to-date knowledge of evolving regulations to ensure your software remains compliant throughout its lifecycle.'
-              },
-              {
-                question: 'What technologies do you use for banking software development?',
-                answer: 'We leverage a comprehensive technology stack including programming languages like Java, .NET, Python, and JavaScript, frameworks such as Spring Boot, React, and Angular, databases like Oracle, SQL Server, and PostgreSQL, and cloud platforms including AWS, Azure, and Google Cloud. For advanced features, we utilize AI/ML technologies, blockchain for secure transactions, and IoT for enhanced banking services. We select the most appropriate technologies based on your specific requirements and existing infrastructure.'
-              },
-              {
-                question: 'Do you provide ongoing support and maintenance for banking software?',
-                answer: 'Yes, we provide comprehensive post-launch support including system monitoring, regular updates, security patches, performance optimization, and feature enhancements. Our support services include 24/7 system monitoring, incident response, regular maintenance updates, compliance updates as regulations change, and ongoing consultation for system improvements. We offer flexible support packages tailored to your operational needs and budget requirements.'
               }
             ].map((faq, index) => (
               <motion.div
                 key={index}
-                className="border border-gray-200 p-8"
+                className="hover:shadow-sm transition-shadow duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  {faq.answer}
-                </p>
+                <button
+                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                  className="w-full text-left py-2 flex justify-between items-center"
+                >
+                  <h3 className="text-lg font-light text-gray-900 pr-4">
+                    {faq.question}
+                  </h3>
+                  <div className="flex-shrink-0">
+                    <motion.div
+                      animate={{ rotate: openFAQ === index ? 45 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="w-6 h-6 flex items-center justify-center"
+                    >
+                      <span className="text-2xl text-red-600 font-light">+</span>
+                    </motion.div>
+                  </div>
+                </button>
+                
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: openFAQ === index ? 'auto' : 0,
+                    opacity: openFAQ === index ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  <div className="pyx-6">
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Why Choose leanTek Section */}
-      <div className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-8">
-              Why Choose leanTek for Banking Software Development?
-            </h2>
-            <div className="w-20 h-1 bg-red-600 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              Founded with a commitment to excellence and innovation, leanTek delivers custom banking solutions tailored to your specific needs. Our experienced team combines deep industry expertise with cutting-edge technology to create solutions that drive measurable results.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Vast Talent Pool',
-                description: 'Access to 500+ senior developers with specialized banking and fintech expertise, ensuring the right skills for your project.',
-                icon: '👥'
-              },
-              {
-                title: 'Quick Project Kick-off',
-                description: 'Streamlined onboarding process gets your project started within 1-2 weeks, reducing time-to-market.',
-                icon: '🚀'
-              },
-              {
-                title: 'Sustainable Product Quality',
-                description: 'Rigorous testing, code reviews, and quality assurance processes ensure long-term reliability and maintainability.',
-                icon: '🔧'
-              },
-              {
-                title: 'Reasonable Costs',
-                description: 'Competitive pricing models with transparent cost structure and no hidden fees, maximizing your ROI.',
-                icon: '💰'
-              },
-              {
-                title: 'Flexible Cooperation Models',
-                description: 'Choose from dedicated teams, staff augmentation, or project-based engagement models to fit your needs.',
-                icon: '🤝'
-              },
-              {
-                title: 'Efficient Project Delivery',
-                description: 'Agile methodology with regular milestones ensures on-time delivery and continuous stakeholder engagement.',
-                icon: '⚡'
-              },
-              {
-                title: 'Compliance Excellence',
-                description: 'Deep understanding of banking regulations ensures your solution meets all compliance requirements.',
-                icon: '✅'
-              },
-              {
-                title: 'Innovation Focus',
-                description: 'Stay ahead with the latest technologies including AI, blockchain, and cloud-native architectures.',
-                icon: '💡'
-              },
-              {
-                title: '24/7 Support',
-                description: 'Round-the-clock support and maintenance services ensure your banking systems run smoothly.',
-                icon: '🛡️'
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                className="bg-white border border-gray-200 p-8 text-center hover:shadow-lg transition-shadow duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="text-4xl mb-6">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Call to Action Section */}
-      <div 
-        className="relative py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Transform Your Banking Operations?
-            </h2>
-            <p className="text-xl text-gray-300 mb-10 max-w-4xl mx-auto">
-              Partner with leanTek to build secure, scalable, and innovative banking solutions that drive digital transformation, enhance customer satisfaction, and position your institution for future growth. Don't compromise on quality – build trust and reliability across your banking ecosystem.
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <motion.button
-                className="bg-red-600 hover:bg-red-700 text-white font-semibold px-12 py-4 text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Get Expert Consultation
-              </motion.button>
-              <motion.button
-                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-12 py-4 text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                View Case Studies
-              </motion.button>
-            </div>
-
-            {/* Next Steps */}
-            <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-8">What Happens Next?</h3>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
-                {[
-                  {
-                    step: '01',
-                    title: 'Discovery Call',
-                    description: 'We discuss your requirements and sign an NDA to ensure confidentiality.'
-                  },
-                  {
-                    step: '02',
-                    title: 'Project Proposal',
-                    description: 'Receive detailed scope of work, team composition, timeline, and cost estimates.'
-                  },
-                  {
-                    step: '03',
-                    title: 'Agreement',
-                    description: 'Review terms, finalize the agreement, and plan the project kickoff.'
-                  },
-                  {
-                    step: '04',
-                    title: 'Development',
-                    description: 'Start building your banking solution with regular updates and milestones.'
-                  }
-                ].map((step, index) => (
-                  <motion.div
-                    key={step.step}
-                    className="bg-white bg-opacity-10 backdrop-blur-sm border border-white border-opacity-20 p-6 rounded-lg"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="text-red-400 font-bold text-2xl mb-2">{step.step}</div>
-                    <h4 className="text-white font-semibold mb-2">{step.title}</h4>
-                    <p className="text-gray-300 text-sm">{step.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+      {/* Contact Form Section */}
+      <section id="contact" className="">
+        <ContactForm />
+      </section>
     </motion.div>
   )
 }

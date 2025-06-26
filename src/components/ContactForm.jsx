@@ -55,7 +55,7 @@ const ContactForm = () => {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <motion.h2
           className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -218,7 +218,7 @@ const ContactForm = () => {
           </div>
 
           <div className="lg:col-span-1">
-            <div className="bg-gray-50 p-6 sm:p-8">
+            <div className="bg-gray-100 p-6 sm:p-8">
               <h3 className="text-xl sm:text-2xl font-normal mb-6 sm:mb-8">What happens next?</h3>
               <div className="space-y-6 sm:space-y-8">
                 {nextSteps.map((step, index) => (
@@ -226,7 +226,7 @@ const ContactForm = () => {
                     <div className="flex-shrink-0 w-8 h-8 border-2 border-black flex items-center justify-center font-medium text-sm">
                       {step.number}
                     </div>
-                    <p className="text-gray-600 text-sm sm:text-base">{step.text}</p>
+                    <p className="text-gray-600 text-xs lg:text-base">{step.text}</p>
                   </div>
                 ))}
               </div>
@@ -234,7 +234,7 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <div className="mt-12 sm:mt-16 text-center">
+        <div className="mt-8">
           <p className="text-gray-600 text-sm sm:text-base">
             You can also send us your request to{' '}
             <a href="mailto:contact@leantek.com" className="text-red-500 hover:text-red-600">

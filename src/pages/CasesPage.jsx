@@ -57,12 +57,36 @@ const CaseStudyCard = ({ title, category, image, description, client, industry, 
 }
 
 const CasesPage = () => {
+  // Image URLs
+  const ctivnImageUrl = `${import.meta.env.BASE_URL}images/cases/ctivn/manufacturing-hero-bg.jpg`
   const [activeFilter, setActiveFilter] = useState('All')
   const [activeTab, setActiveTab] = useState('Industry')
   const [searchTerm, setSearchTerm] = useState('')
   const [visibleCount, setVisibleCount] = useState(6)
 
   const caseStudies = [
+    {
+      title: "CTIVN - Digital business operations with Custom Lean ERP solutions and services",
+      category: "Manufacturing",
+      industry: "Manufacturing",
+      solution: "Custom Software",
+      technology: "C#",
+      service: "Development",
+      image: ctivnImageUrl,
+      tags: ["Custom ERP", "Lean ERP", "Manufacturing", "Enterprise"],
+      link: "/cases/ctivn-erp-implementation"
+    },
+    {
+      title: "VFSC - Vietnam Food Safety Chain: Smart Agriculture Management 4.0",
+      category: "Agriculture",
+      industry: "Agriculture",
+      solution: "IoT Solutions",
+      technology: "Microservices",
+      service: "Development",
+      image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&q=80",
+      tags: ["Smart Agriculture", "Food Safety", "Traceability", "IoT"],
+      link: "/cases/vfsc-food-safety-chain"
+    },
     {
       title: "Gym membership app development & improvement",
       category: "Healthcare",
@@ -347,11 +371,11 @@ const CasesPage = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+      <section className="pt-40 pb-24 bg-gray-50 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="container mx-auto px-4">
           
           <motion.h1 
-              className="text-6xl lg:text-7xl font-light text-white mb-6"
+              className="text-4xl md:text-6xl font-light mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -463,7 +487,7 @@ const CasesPage = () => {
             {visibleCases.map((caseStudy, index) => (
               <motion.div 
                 key={index}
-                className="relative group cursor-pointer bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl hover:border-gray-300 transition-all duration-300"
+                className="relative group cursor-pointer bg-white border border-gray-200 overflow-hidden hover:shadow-xl hover:border-gray-300 transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -480,7 +504,7 @@ const CasesPage = () => {
                   <div className="p-6">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {caseStudy.tags.map((tag) => (
-                        <span key={tag} className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-medium">
+                        <span key={tag} className="text-xs bg-gray-100 text-gray-700 px-3 py-1 font-medium">
                           {tag}
                         </span>
                       ))}

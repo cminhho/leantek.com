@@ -14,7 +14,9 @@ export default {
         light: "#F9FAFB", // gray-50
       },
       fontFamily: {
-        sans: ['SF Pro Display', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        heading: ['Montserrat', 'sans-serif'],
+        ui: ['Roboto', 'sans-serif'],
       },
       textShadow: {
         'lg': '0 2px 4px rgba(0, 0, 0, 0.25)',

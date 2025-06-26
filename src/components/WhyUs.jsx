@@ -2,6 +2,16 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const WhyUs = () => {
+  // Image URLs
+  const iso27001Url = `${import.meta.env.BASE_URL}images/partners/ISO-27001.svg`
+  const iso9001Url = `${import.meta.env.BASE_URL}images/partners/ISO-9001.svg`
+  const googleCloudUrl = `${import.meta.env.BASE_URL}images/partners/Google-Cloud-Partner.svg`
+  const awsPartnerTierUrl = `${import.meta.env.BASE_URL}images/partners/AWS-partner-tier.svg`
+  const msPartnerData2Url = `${import.meta.env.BASE_URL}images/partners/MS-solutions-partners-data-2.svg`
+  const msPartnerData1Url = `${import.meta.env.BASE_URL}images/partners/MS-solutions-partners-data-1.svg`
+  const sapPartnerUrl = `${import.meta.env.BASE_URL}images/partners/SAP-partner.svg`
+  const ibmPartnerUrl = `${import.meta.env.BASE_URL}images/partners/IBM-partner.svg`
+  const frameBadgeUrl = `${import.meta.env.BASE_URL}images/partners/Frame-badge.svg`
   const benefits = [
     {
       title: "Proven commercial experience",
@@ -30,116 +40,47 @@ const WhyUs = () => {
   ]
 
   const partnerLogos = [
-    // Cloud & Infrastructure Partners
     {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-      alt: "AWS Partner"
+      name: 'ISO 9001',
+      image: iso27001Url
     },
     {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
-      alt: "Google Cloud Partner"
+      name: 'ISO 27001',
+      image: iso9001Url
     },
     {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
-      alt: "Microsoft Azure Partner"
+      name: 'Google Cloud Partner',
+      image: googleCloudUrl
     },
     {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-      alt: "Docker Certified"
+      name: 'AWS Partner',
+      image: awsPartnerTierUrl
     },
     {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
-      alt: "Kubernetes Certified"
-    },
-    
-    // Development Technologies
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-      alt: "React Experts"
+      name: 'Microsoft Partner',
+      image: msPartnerData2Url
     },
     {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-      alt: "Node.js Experts"
+      name: 'Salesforce Partner',
+      image: msPartnerData1Url
     },
     {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-      alt: "Python Experts"
+      name: 'SAP Partner',
+      image: sapPartnerUrl
     },
     {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-      alt: "TypeScript Experts"
+      name: 'IBM',
+      image: ibmPartnerUrl
     },
     {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-      alt: "Java Experts"
-    },
-
-    // Database & Backend
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-      alt: "PostgreSQL Partner"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-      alt: "MongoDB Partner"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
-      alt: "Redis Partner"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-      alt: "MySQL Partner"
-    },
-
-    // DevOps & Tools
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-      alt: "Git"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg",
-      alt: "Jenkins"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg",
-      alt: "GitLab Partner"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-      alt: "GitHub Partner"
-    },
-
-    // Mobile & Frontend
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
-      alt: "Flutter Experts"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
-      alt: "iOS Development"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg",
-      alt: "Android Development"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
-      alt: "Vue.js Experts"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
-      alt: "Angular Experts"
-    },
-    {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-      alt: "Next.js Experts"
+      name: 'Databricks',
+      image: frameBadgeUrl
     }
   ]
 
   return (
     <section className="bg-black py-12 sm:py-16 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <motion.h2 
           className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-white mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -163,13 +104,13 @@ const WhyUs = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <h3 className="text-gray-200 text-sm sm:text-base font-normal col-span-1">{benefit.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm sm:text-base col-span-1 lg:col-span-2">{benefit.description}</p>
+                <p className="hidden sm:block text-gray-400 leading-relaxed text-xs lg:text-sm col-span-1 lg:col-span-2">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
 
           {/* Partner Logos Grid */}
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-center col-span-1 lg:col-span-3 mt-8 lg:mt-0">
+          <div className="flex flex-wrap gap-4 sm:gap-6 lg:gap-8 items-center justify-center col-span-1 lg:col-span-3 mt-8 lg:mt-0">
             {partnerLogos.map((logo, index) => (
               <motion.div
                 key={index}
@@ -180,9 +121,9 @@ const WhyUs = () => {
                 transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 <img 
-                  src={logo.src} 
-                  alt={logo.alt}
-                  className="max-w-full h-8 sm:h-10 lg:h-12 w-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 object-contain"
+                  src={logo.image} 
+                  alt={logo.name}
+                  className="max-w-full h-10 lg:h-24 w-auto opacity-100 grayscale object-contain"
                 />
               </motion.div>
             ))}

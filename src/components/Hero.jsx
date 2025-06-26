@@ -4,6 +4,14 @@ import { useEffect, useRef } from 'react'
 
 const Hero = () => {
   const videoRef = useRef(null)
+  
+  // Media URLs
+  const videoUrl = `${import.meta.env.BASE_URL}videos/InnoSphere1.hevc.mp4`
+  const isoUrl27001 = `${import.meta.env.BASE_URL}images/partners/ISO-27001.svg`
+  const isoUrl9001 = `${import.meta.env.BASE_URL}images/partners/ISO-9001.svg`  
+  const awsPartnerUrl = `${import.meta.env.BASE_URL}images/partners/AWS-partner.svg`
+  const microsoftPartnerUrl = `${import.meta.env.BASE_URL}images/partners/Microsoft-partner.svg`
+  const salesforcePartnerUrl = `${import.meta.env.BASE_URL}images/partners/Salesforce-partner.svg`
 
   useEffect(() => {
     if (videoRef.current) {
@@ -24,7 +32,7 @@ const Hero = () => {
           muted
           loop
           playsInline
-          src="https://innowise.com//wp-content//uploads//2025//02//InnoSphere1.hevc_.mp4"
+          src={videoUrl}
         />
         
         {/* Dark overlay */}
@@ -32,33 +40,33 @@ const Hero = () => {
       </div>
 
       {/* Content Container */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto relative z-10">
         {/* Hero Content */}
         <div className="h-auto lg:min-h-screen flex flex-col justify-center py-12 sm:py-16 md:py-20 lg:py-32">
           {/* Certification/Partner Logos */}
           <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-6 sm:mb-8 md:mb-10 lg:mb-16 mt-10 sm:mt-10 md:mt-12 lg:mt-0 order-1">
             <img 
-              src="https://innowise.com/wp-content/uploads/2025/03/ISO-27002-1.svg" 
+              src={isoUrl27001} 
               alt="ISO 27001" 
               className="h-14 sm:h-14 md:h-16 lg:h-20 xl:h-24 opacity-80 hover:opacity-100 transition-opacity" 
             />
             <img 
-              src="https://innowise.com/wp-content/uploads/2025/03/ISO-27003.svg" 
+              src={isoUrl9001} 
               alt="ISO 9001" 
               className="h-14 sm:h-14 md:h-16 lg:h-20 xl:h-24 opacity-80 hover:opacity-100 transition-opacity" 
             />
             <img 
-              src="https://innowise.com/wp-content/uploads/2025/03/Aws_partner.svg" 
+              src={awsPartnerUrl} 
               alt="AWS Partner" 
               className="h-14 sm:h-14 md:h-16 lg:h-20 xl:h-24 opacity-80 hover:opacity-100 transition-opacity" 
             />
             <img 
-              src="https://innowise.com/wp-content/uploads/2025/03/MS_solutions_partners_digital-1.svg" 
+              src={microsoftPartnerUrl} 
               alt="Microsoft Partner" 
               className="h-14 sm:h-14 md:h-16 lg:h-20 xl:h-24 opacity-80 hover:opacity-100 transition-opacity" 
             />
             <img 
-              src="https://innowise.com/wp-content/uploads/2025/03/Salesforce_Partner-1.svg" 
+              src={salesforcePartnerUrl} 
               alt="Salesforce Partner" 
               className="h-14 sm:h-14 md:h-16 lg:h-20 xl:h-24 opacity-80 hover:opacity-100 transition-opacity" 
             />

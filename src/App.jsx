@@ -15,6 +15,8 @@ import ERPPage from './pages/services/ERPPage'
 import BuyNowPayLaterPage from './pages/industries/finance/BuyNowPayLaterPage'
 import BankingPage from './pages/industries/BankingPage'
 import CTIVNERPImplementationPage from './pages/cases/CTIVNERPImplementationPage'
+import VFSCFoodSafetyChainPage from './pages/cases/VFSCFoodSafetyChainPage'
+import HowWeWorkPage from './pages/HowWeWorkPage'
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -43,6 +45,8 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/cases" element={<CasesPage />} />
           <Route path="/cases/ctivn-erp-implementation-services" element={<CTIVNERPImplementationPage />} />
+          <Route path="/cases/vfsc-vietnam-food-safety-chain" element={<VFSCFoodSafetyChainPage />} />
+          <Route path="/how-we-work" element={<HowWeWorkPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/technologies" element={<TechnologiesPage />} />
           <Route path="/industries" element={<IndustriesPage />} />

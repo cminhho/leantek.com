@@ -4,46 +4,42 @@ import { motion } from 'framer-motion'
 const CaseStudies = () => {
   const cases = [
     {
-      image: "https://images.ctfassets.net/lzny33ho1g45/4vXtHsD8OwspfhedAGOG6k/efb7a2b28a29f5f4023829a56ab04071/best-erp-software-03-sap.webp?w=1400&fm=avif",
+      image: "https://www.vietnamworks.com/_next/image?url=https%3A%2F%2Fimages.vietnamworks.com%2Fcompany_profile%2F93292.jpg&w=1920&q=75",
       title: "CTIVN ERP Implementation: 60% Efficiency Improvement",
       link: "/cases/ctivn-erp-implementation-services",
       tags: ["ERP", "Digital Transformation", "Process Optimization", "Integration"]
     },
     {
-      image: "https://peoplemanagingpeople.com/wp-content/cache/peoplemanagingpeople.com/static/static.crozdesk.com/web-app-library-categories-providers-screenshots-000-068-083-pub-bamboohr-screenshot-1712252279.png",
-      title: "Enterprise HR Management System",
-      link: "/cases/hrm-system", 
-      tags: ["HRM", "Employee Management", "Automation", "Analytics"]
+      image: "https://vietnhattan.com.vn/thumbs/675x470x1/upload/news/anyconvcom10-1jpg-1-2172.png",
+      title: "Viet Nhat Tan ERP Implementation",
+      tags: ["ERP", "Digital Transformation", "Process Optimization", "Integration"]
     },
     {
       image: "https://toggl.com/blog/wp-content/uploads/2022/11/gantt-pro-timeline.png",
       title: "Agile Project Management Platform",
-      link: "/cases/project-management-platform",
       tags: ["Project Management", "Agile", "Collaboration", "Productivity"]
     },
     {
       image: "https://hesfintech.com/wp-content/uploads/2024/04/merchant-banner-scaled.webp",
       title: "Merchant Lending Platform",
-      link: "/cases/buy-now-pay-later",
       tags: ["Fintech", "BNPL", "Payment Processing", "Risk Management"]
     },
     {
       image: "https://images.ctfassets.net/lzny33ho1g45/1IVKp4IwKN2ytf80w8hWWD/e6958b74255768657722568c0c1c2c4f/Asana.png?w=1400&fm=avif",
-      title: "Enterprise Work Management Suite",
-      link: "/cases/enterprise-work-management",
+      title: "CiCC HRM Implementation",
       tags: ["Workflow Management", "Team Collaboration", "Automation", "Analytics"]
     },
     {
-      image: "https://unable-actionable-car.media.strapiapp.com/image9_7d2f10edbc.png",
-      title: "AI-Powered Enterprise Search Engine",
-      link: "/cases/ai-enterprise-search",
-      tags: ["AI", "Machine Learning", "Enterprise Search", "Data Analytics"]
+      image: "https://cicc.com.vn/wp-content/uploads/2023/01/Lean-nong-san.jpg",
+      title: "Vietnam Food Safety Chain – VFSC",
+      link: "/cases/vfsc-vietnam-food-safety-chain",
+      tags: ["Food Safety", "Blockchain", "Supply Chain", "Traceability"]
     }
   ]
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white" id="case-studies">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 sm:mb-12">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-900 mb-4 sm:mb-0">Case studies</h2>
           <Link 
@@ -64,7 +60,7 @@ const CaseStudies = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Link to={caseItem.link}>
+              <Link to={caseItem.link} onClick={() => window.scrollTo(0, 0)}>
                 <div className="aspect-w-4 aspect-h-4 overflow-hidden">
                   <img 
                     src={caseItem.image} 

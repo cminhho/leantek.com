@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import CTASection from '../components/CTASection'
+import TableOfContentsNav from '../components/TableOfContentsNav'
 
 const TechnologyCard = ({ tech, index, category }) => {
   const getTechIcon = (techName) => {
@@ -134,6 +135,19 @@ const TechnologiesPage = () => {
     { number: "98%", label: "Success Rate" }
   ]
 
+  // Table of Contents sections
+  const tocSections = [
+    { id: "overview", title: "Technologies Overview" },
+    { id: "stats", title: "Our Expertise" },
+    { id: "frontend", title: "Frontend Development" },
+    { id: "backend", title: "Backend Development" },
+    { id: "mobile", title: "Mobile Development" },
+    { id: "cloud", title: "Cloud & DevOps" },
+    { id: "data-ai", title: "Data & AI Solutions" },
+    { id: "philosophy", title: "Technology Philosophy" },
+    { id: "contact", title: "Start Your Project" }
+  ]
+
   const frontendTechnologies = [
     {
       name: "React Ecosystem",
@@ -251,12 +265,14 @@ const TechnologiesPage = () => {
 
   return (
     <div className="min-h-screen bg-white ">
+      <TableOfContentsNav sections={tocSections} title="Technologies Navigation" />
+
       {/* Hero Section */}
-      <section className="bg-gray-900 text-white py-24 pt-40 pb-24">
+      <section className="bg-gray-900 text-white py-24 pt-40 pb-24" id="overview">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl">
             <motion.h1 
-              className="text-5xl lg:text-6xl font-light text-white mb-6 tracking-tight"
+              className="text-4xl md:text-6xl font-light mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -299,7 +315,7 @@ const TechnologiesPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50" id="stats">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -321,44 +337,54 @@ const TechnologiesPage = () => {
 
       {/* Technologies Sections */}
       <div className="container mx-auto px-4 py-20">
-        <TechnologySection 
-          title="Frontend Development" 
-          technologies={frontendTechnologies}
-          category="frontend"
-          description="Create engaging user experiences with modern frontend frameworks and libraries, ensuring responsive design and optimal performance across all devices."
-        />
+        <div id="frontend">
+          <TechnologySection 
+            title="Frontend Development" 
+            technologies={frontendTechnologies}
+            category="frontend"
+            description="Create engaging user experiences with modern frontend frameworks and libraries, ensuring responsive design and optimal performance across all devices."
+          />
+        </div>
         
-        <TechnologySection 
-          title="Backend Development" 
-          technologies={backendTechnologies}
-          category="backend"
-          description="Build robust server-side applications with scalable architectures, secure APIs, and efficient data processing capabilities."
-        />
+        <div id="backend">
+          <TechnologySection 
+            title="Backend Development" 
+            technologies={backendTechnologies}
+            category="backend"
+            description="Build robust server-side applications with scalable architectures, secure APIs, and efficient data processing capabilities."
+          />
+        </div>
         
-        <TechnologySection 
-          title="Mobile Development" 
-          technologies={mobileTechnologies}
-          category="mobile"
-          description="Develop native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android devices."
-        />
+        <div id="mobile">
+          <TechnologySection 
+            title="Mobile Development" 
+            technologies={mobileTechnologies}
+            category="mobile"
+            description="Develop native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android devices."
+          />
+        </div>
         
-        <TechnologySection 
-          title="Cloud & DevOps" 
-          technologies={cloudTechnologies}
-          category="cloud"
-          description="Deploy and manage applications in the cloud with modern DevOps practices, ensuring scalability, reliability, and security."
-        />
+        <div id="cloud">
+          <TechnologySection 
+            title="Cloud & DevOps" 
+            technologies={cloudTechnologies}
+            category="cloud"
+            description="Deploy and manage applications in the cloud with modern DevOps practices, ensuring scalability, reliability, and security."
+          />
+        </div>
         
-        <TechnologySection 
-          title="Data & AI Solutions" 
-          technologies={dataAndAI}
-          category="ai"
-          description="Harness the power of data and artificial intelligence to create intelligent applications and derive actionable business insights."
-        />
+        <div id="data-ai">
+          <TechnologySection 
+            title="Data & AI Solutions" 
+            technologies={dataAndAI}
+            category="ai"
+            description="Harness the power of data and artificial intelligence to create intelligent applications and derive actionable business insights."
+          />
+        </div>
       </div>
 
       {/* Technology Philosophy Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" id="philosophy">
         <div className="container px-4">
           <div className="">
             <motion.h2 
@@ -415,7 +441,9 @@ const TechnologiesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <CTASection />
+      <div id="contact">
+        <CTASection />
+      </div>
     </div>
   )
 }

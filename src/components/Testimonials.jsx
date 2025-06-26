@@ -48,7 +48,7 @@ const Testimonials = () => {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <motion.h2 
           className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8">
+            <p className="text-gray-700 text-xs lg:text-base mb-6 sm:mb-8">
               Our clients trust us because we treat their products like our own. We focus on their business goals, building solutions that truly meet their needs — not just delivering features.
             </p>
             <div>
@@ -85,7 +85,7 @@ const Testimonials = () => {
                     </svg>
                   ))}
                 </div>
-                <span className="ml-2 text-xs sm:text-sm text-gray-600">4.9 • 127 REVIEWS</span>
+                <span className="ml-2 text-xs sm:text-sm text-gray-800">4.9 • 127 REVIEWS</span>
               </div>
             </div>
           </motion.div>
@@ -95,31 +95,14 @@ const Testimonials = () => {
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-50 p-6 sm:p-8 rounded-lg"
+                className="bg-gray-100 p-6 sm:p-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                {/* Rating */}
-                <div className="flex items-center mb-4 sm:mb-6">
-                  <img 
-                    src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg"
-                    alt="Google"
-                    className="h-5 w-5 sm:h-6 sm:w-6 mr-2"
-                  />
-                  <div className="flex items-center">
-                    {[1,2,3,4,5].map((star) => (
-                      <svg key={star} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-                      </svg>
-                    ))}
-                    <span className="ml-2 text-gray-600 text-sm sm:text-base">{testimonial.rating}</span>
-                  </div>
-                </div>
-
                 {/* Quote */}
-                <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">"{testimonial.quote}"</p>
+                <p className="text-gray-800 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">"{testimonial.quote}"</p>
 
                 {/* Author */}
                 <div className="flex items-center justify-between">

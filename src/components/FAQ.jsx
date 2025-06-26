@@ -61,7 +61,7 @@ const FAQ = () => {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-gray-50" id="faq">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <motion.h2
           className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}

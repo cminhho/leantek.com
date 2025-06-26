@@ -3,12 +3,33 @@ import { Link } from 'react-router-dom'
 import Logo from './Logo'
 
 const Footer = () => {
+  // Image URLs
+  const iso27001Url = `${import.meta.env.BASE_URL}images/partners/ISO-27001.svg`
+  const iso9001Url = `${import.meta.env.BASE_URL}images/partners/ISO-9001.svg`
+  const googleCloudUrl = `${import.meta.env.BASE_URL}images/partners/Google-Cloud-Partner.svg`
+  const awsPartnerTierUrl = `${import.meta.env.BASE_URL}images/partners/AWS-partner-tier.svg`
+  const msPartnerData2Url = `${import.meta.env.BASE_URL}images/partners/MS-solutions-partners-data-2.svg`
+  const msPartnerData1Url = `${import.meta.env.BASE_URL}images/partners/MS-solutions-partners-data-1.svg`
+  const sapPartnerUrl = `${import.meta.env.BASE_URL}images/partners/SAP-partner.svg`
   const [email, setEmail] = useState('')
   const currentYear = new Date().getFullYear()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Newsletter signup:', email)
+  }
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
+  // Handle link click with scroll to top
+  const handleLinkClick = () => {
+    scrollToTop()
   }
 
   const locations = [
@@ -73,35 +94,31 @@ const Footer = () => {
   const certifications = [
     {
       name: 'ISO 9001',
-      image: 'https://innowise.com/wp-content/uploads/2025/03/ISO-27002-1.svg'
+      image: iso27001Url
     },
     {
       name: 'ISO 27001',
-      image: 'https://innowise.com/wp-content/uploads/2025/03/ISO-27003.svg'
+      image: iso9001Url
     },
     {
       name: 'Google Cloud Partner',
-      image: 'https://innowise.com/wp-content/uploads/2022/11/Google_Cloud_Partner-2.svg'
+      image: googleCloudUrl
     },
     {
       name: 'AWS Partner',
-      image: 'https://innowise.com/wp-content/uploads/2022/11/Aws_partner_tier_logo.svg'
+      image: awsPartnerTierUrl
     },
     {
       name: 'Microsoft Partner',
-      image: 'https://innowise.com/wp-content/uploads/2022/11/MS_solutions_partners_data-2.svg'
+      image: msPartnerData2Url
     },
     {
       name: 'Salesforce Partner',
-      image: 'https://innowise.com/wp-content/uploads/2022/11/MS_solutions_partners_data-1-1.svg'
+      image: msPartnerData1Url
     },
     {
       name: 'SAP Partner',
-      image: 'https://innowise.com/wp-content/uploads/2025/06/SAP_Partner-1.svg'
-    },
-    {
-      name: 'IBM',
-      image: 'https://innowise.com/wp-content/uploads/2022/11/IBM_Partner_Plus_silver_partner.svg'
+      image: sapPartnerUrl
     }
   ]
 
@@ -109,24 +126,24 @@ const Footer = () => {
     <footer className="bg-black/85 text-white pt-20 pb-8">
       <div className="container mx-auto">
         
-        <h2 className="text-4xl font-normal mb-16">
+        <h2 className="text-3xl lg:text-4xl font-normal mb-16">
           Let<span className="text-red-500">'</span>s develop software together!
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-4">
           {/* Left Column - Contact Info (1/3 width) */}
           <div className="lg:col-span-4">
-            <div className="mb-8">
+            <div className="mb-4">
               <p className="text-sm text-gray-400">Vietnam</p>
               <p className="text-sm">+84 906 246 489</p>
             </div>
-            <a href="mailto:contact@leantek.com" className="text-sm hover:text-gray-300 block mb-16">
+            <a href="mailto:contact@leantek.com" className="text-sm text-gray-400 hover:text-gray-300 block mb-8">
               contact@leantek.com
             </a>
 
             {/* Newsletter */}
             <div>
-              <p className="text-base mb-4 text-gray-400">Be the first to know about IT innovations and interesting case studies.</p>
+              <p className="text-sm mb-4 text-gray-400 font-light">Be the first to know about IT innovations and interesting case studies.</p>
               <form onSubmit={handleSubmit} className="flex">
                 <input
                   type="email"
@@ -142,9 +159,9 @@ const Footer = () => {
               </form>
               <p className="text-xs text-gray-400 mt-8">
                 By signing up you agree to our{' '}
-                <Link to="/terms" className="underline hover:text-white">Terms of use</Link>
+                <Link to="/terms" className="underline hover:text-white" onClick={handleLinkClick}>Terms of use</Link>
                 {' '}and{' '}
-                <Link to="/privacy" className="underline hover:text-white">Privacy Policy</Link>
+                <Link to="/privacy" className="underline hover:text-white" onClick={handleLinkClick}>Privacy Policy</Link>
                 {' '}regarding the use of personal data and information.
               </p>
             </div>
@@ -152,14 +169,14 @@ const Footer = () => {
 
           {/* Right Column - Links and Certifications (2/3 width) */}
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-2 gap-8 mb-16">
               {/* Services */}
-              <div>
+              <div className="sm:col-span-1">
                 <h3 className="text-sm mb-6">Services</h3>
                 <ul className="space-y-3">
                   {services.map((service, index) => (
                     <li key={index}>
-                      <Link to={service.link} className="text-sm text-gray-400 hover:text-white">
+                      <Link to={service.link} className="text-sm text-gray-400 hover:text-white" onClick={handleLinkClick}>
                         {service.name}
                       </Link>
                     </li>
@@ -168,12 +185,12 @@ const Footer = () => {
               </div>
 
               {/* Domains */}
-              <div>
+              <div className="sm:col-span-1">
                 <h3 className="text-sm mb-6">Domains</h3>
                 <ul className="space-y-3">
                   {domains.map((domain, index) => (
                     <li key={index}>
-                      <Link to={domain.link} className="text-sm text-gray-400 hover:text-white">
+                      <Link to={domain.link} className="text-sm text-gray-400 hover:text-white" onClick={handleLinkClick}>
                         {domain.name}
                       </Link>
                     </li>
@@ -182,12 +199,12 @@ const Footer = () => {
               </div>
 
               {/* Industries */}
-              <div>
+              <div className="sm:col-span-1">
                 <h3 className="text-sm mb-6">Industries</h3>
                 <ul className="space-y-3">
                   {industries.map((industry, index) => (
                     <li key={index}>
-                      <Link to={industry.link} className="text-sm text-gray-400 hover:text-white">
+                      <Link to={industry.link} className="text-sm text-gray-400 hover:text-white" onClick={handleLinkClick}>
                         {industry.name}
                       </Link>
                     </li>
@@ -196,12 +213,12 @@ const Footer = () => {
               </div>
 
               {/* About */}
-              <div>
+              <div className="sm:col-span-1">
                 <h3 className="text-sm mb-6">About us</h3>
                 <ul className="space-y-3">
                   {aboutLinks.map((link, index) => (
                     <li key={index}>
-                      <Link to={link.link} className="text-sm text-gray-400 hover:text-white">
+                      <Link to={link.link} className="text-sm text-gray-400 hover:text-white" onClick={handleLinkClick}>
                         {link.name}
                       </Link>
                     </li>
@@ -211,7 +228,7 @@ const Footer = () => {
             </div>
 
             {/* Certifications */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            <div className="flex flex-wrap gap-8 items-center justify-start">
               {certifications.map((cert, index) => (
                 <img 
                   key={index}
@@ -232,9 +249,9 @@ const Footer = () => {
             <Logo variant="footer" size="sm" />
             <div>
               © {currentYear} leantek. All Rights Reserved.{' '}
-              <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+              <Link to="/privacy" className="hover:text-white" onClick={handleLinkClick}>Privacy Policy</Link>
               {', '}
-              <Link to="/cookies" className="hover:text-white">Cookies Policy</Link>
+              <Link to="/cookies" className="hover:text-white" onClick={handleLinkClick}>Cookies Policy</Link>
             </div>
           </div>
           <div className="flex gap-6">

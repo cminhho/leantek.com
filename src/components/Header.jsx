@@ -69,7 +69,7 @@ const Header = ({ scrolled }) => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getHeaderBackground()}`}
       ref={menuRef}
     >
-      <div className="container mx-auto py-4 flex items-center justify-between">
+      <div className="container mx-auto py-2 lg:py-4 flex items-center justify-between">
         {/* Logo */}
         <Logo variant="header" scrolled={shouldUseScrolledStyling} />
 
@@ -121,6 +121,7 @@ const Header = ({ scrolled }) => {
             <li>
               <NavLink 
                 to="/industries" 
+                onClick={() => window.scrollTo(0, 0)}
                 className={({ isActive }) => 
                   `text-base font-medium transition-colors ${
                     shouldUseScrolledStyling 

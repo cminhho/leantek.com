@@ -17,6 +17,32 @@ const Industries = () => {
         'Speed up transactions with secure, real-time solutions',
       ],
       image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
+      link: '/industries/banking',
+    },
+    {
+      id: 'Enterprise',
+      title: 'Enterprise',
+      contentTitle: 'Enterprise resource planning',
+      description: 'Our custom solutions help businesses scale and stay flexible in changing markets. As a software development firm, we create enterprise software that automates tasks, boosts collaboration, and keeps data secure.',
+      benefits: [
+        'Automate workflows to increase productivity by 20%',
+        'Protect sensitive data with advanced security tools',
+        'Enhance collaboration with cloud-based integrations'
+      ],
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+      link: '/industries/enterprise',
+    },
+    {
+      id: 'Manufacturing',
+      title: 'Manufacturing',
+      contentTitle: 'Manufacturing',
+      description: 'We create manufacturing software solutions that optimize production processes, reduce waste, and improve operational efficiency. Our systems help manufacturers automate workflows and make data-driven decisions.',
+      benefits: [
+        'Optimize production with real-time monitoring',
+        'Reduce operational costs through automation',
+        'Improve quality control processes',
+      ],
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 'eCommerce',
@@ -43,18 +69,6 @@ const Industries = () => {
       image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
     },
     {
-      id: 'Manufacturing',
-      title: 'Manufacturing',
-      contentTitle: 'Manufacturing',
-      description: 'We create manufacturing software solutions that optimize production processes, reduce waste, and improve operational efficiency. Our systems help manufacturers automate workflows and make data-driven decisions.',
-      benefits: [
-        'Optimize production with real-time monitoring',
-        'Reduce operational costs through automation',
-        'Improve quality control processes',
-      ],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
-    },
-    {
       id: 'Logistics',
       title: 'Logistics',
       contentTitle: 'Logistics, supply chain, and transportation',
@@ -65,18 +79,6 @@ const Industries = () => {
         'Manage warehouse operations efficiently',
       ],
       image: 'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 'Enterprise',
-      title: 'Enterprise',
-      contentTitle: 'Enterprise resource planning',
-      description: 'Our custom solutions help businesses scale and stay flexible in changing markets. As a software development firm, we create enterprise software that automates tasks, boosts collaboration, and keeps data secure.',
-      benefits: [
-        'Automate workflows to increase productivity by 20%',
-        'Protect sensitive data with advanced security tools',
-        'Enhance collaboration with cloud-based integrations'
-      ],
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 'Education',
@@ -96,7 +98,7 @@ const Industries = () => {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white" id="industries">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-8 sm:mb-12">
           <motion.h2
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light mb-4 sm:mb-0"
@@ -139,8 +141,28 @@ const Industries = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="order-2 lg:order-1">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{activeContent.contentTitle}</h3>
-            <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed">{activeContent.description}</p>
+            {activeContent.link ? (
+              <Link 
+                to={activeContent.link}
+                className="group inline-flex items-center"
+              >
+                <h3 className="text-xl lg:text-2xl font-light lg:font-bold mb-4 sm:mb-6 group-hover:text-red-600 transition-colors duration-300 flex items-center">
+                  {activeContent.contentTitle}
+                  <svg 
+                    className="w-5 h-5 ml-2 text-gray-400 group-hover:text-red-600 transition-colors duration-300 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </h3>
+              </Link>
+            ) : (
+              <h3 className="text-xl lg:text-2xl font-light lg:font-bold mb-4 sm:mb-6">{activeContent.contentTitle}</h3>
+            )}
+            
+            <p className="text-xs lg:text-base text-gray-800 mb-6 sm:mb-8 leading-relaxed">{activeContent.description}</p>
             
             <ul className="space-y-3 sm:space-y-4">
               {activeContent.benefits.map((benefit, index) => (
@@ -148,14 +170,14 @@ const Industries = () => {
                   <svg className="w-5 h-5 text-red-600 mt-0.5 sm:mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-sm sm:text-base text-gray-700">{benefit}</span>
+                  <span className="text-xs lg:text-base text-gray-800">{benefit}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className="relative order-1 lg:order-2">
-            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-100">
+            <div className="aspect-w-16 aspect-h-7 overflow-hidden bg-gray-100">
               <img
                 src={activeContent.image}
                 alt={`${activeContent.title} industry`}
