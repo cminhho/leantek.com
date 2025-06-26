@@ -4,13 +4,13 @@
   "description": "Custom software development, IT consulting and digital transformation services",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/leantek.com/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/apple-touch-icon.png",
+      "src": "/leantek.com/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
     }
